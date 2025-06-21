@@ -1,0 +1,107 @@
+{% extends 'admin/base.html' %}
+
+{% block title %}产品分类 - PIEEG管理后台{% endblock %}
+
+{% block content %}
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">产品分类管理</h1>
+            </div>
+            <div class="col-sm-6">
+                <div class="float-right">
+                    <a href="{{ url_for('admin.create_product_category') }}" class="btn btn-primary">
+                        <i class="fas fa-plus mr-1"></i> 添加分类
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">分类列表</h3>
+            </div>
+            <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                    <thead>
+                        <tr>
+                            <th style="width: 60px">ID</th>
+                            <th>分类名称</th>
+                            <th>别名</th>
+                            <th>描述</th>
+                            <th>排序</th>
+                            <th>产品数量</th>
+                            <th style="width: 150px">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for category in categories %}
+                        <tr>
+                            <td>{{ category.id }}</td>
+                            <td>{{ category.name }}</td>
+                            <td>{{ category.slug }}</td>
+                            <td>{{ category.description|truncate(50) }}</td>
+                            <td>{{ category.order }}</td>
+                            <td>
+                                <span class="badge badge-info">{{ category.products|length }}</span>
+                            </td>
+                            <td>
+                                <a href="{{ url_for('admin.edit_product_category', id=category.id) }}" class="btn btn-xs btn-primary">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#deleteCategoryModal{{ category.id }}">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                                
+                                <!-- 删除确认模态框 -->
+                                <div class="modal fade" id="deleteCategoryModal{{ category.id }}" tabindex="-1" role="dialog" aria-labelledby="deleteCategoryModalLabel{{ category.id }}" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="deleteCategoryModalLabel{{ category.id }}">确认删除</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                确定要删除分类 <strong>{{ category.name }}</strong> 吗？
+                                                {% if category.products|length > 0 %}
+                                                <div class="alert alert-warning mt-2">
+                                                    <i class="fas fa-exclamation-triangle mr-1"></i> 此分类下有 {{ category.products|length }} 个产品，删除前请先移除或重新分类这些产品。
+                                                </div>
+                                                {% endif %}
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                                                <form action="{{ url_for('admin.delete_product_category', id=category.id) }}" method="post" style="display: inline;">
+                                                    <button type="submit" class="btn btn-danger" {% if category.products|length > 0 %}disabled{% endif %}>确认删除</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td colspan="7" class="text-center py-4">
+                                <div class="empty-state">
+                                    <i class="fas fa-tags mb-3" style="font-size: 2rem; color: #adb5bd;"></i>
+                                    <h5>暂无产品分类</h5>
+                                    <p class="text-muted">点击"添加分类"按钮创建您的第一个产品分类</p>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

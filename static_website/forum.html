@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社区论坛 - PIEEG</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="navbar-logo">PI<span>EEG</span></a>
+            <button class="navbar-toggle" id="navbar-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="navbar-menu" id="navbar-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="index.html#products">产品</a></li>
+                <li><a href="index.html#charts">数据可视化</a></li>
+                <li><a href="forum.html" class="active">社区论坛</a></li>
+                <li><a href="#about">关于我们</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main style="padding-top: 100px;">
+        <div class="container">
+            <div class="section-title">
+                <h1>社区论坛</h1>
+                <p>与PIEEG社区分享经验、提问和讨论</p>
+            </div>
+
+            <!-- 论坛分类 -->
+            <div class="forum-categories">
+                <div class="forum-category active">
+                    <i class="fas fa-comments"></i>
+                    <span>全部话题</span>
+                </div>
+                <div class="forum-category">
+                    <i class="fas fa-microchip"></i>
+                    <span>硬件讨论</span>
+                </div>
+                <div class="forum-category">
+                    <i class="fas fa-code"></i>
+                    <span>软件开发</span>
+                </div>
+                <div class="forum-category">
+                    <i class="fas fa-chart-line"></i>
+                    <span>数据分析</span>
+                </div>
+                <div class="forum-category">
+                    <i class="fas fa-question-circle"></i>
+                    <span>问题求助</span>
+                </div>
+            </div>
+
+            <!-- 话题列表 -->
+            <div class="forum-topics">
+                <div class="forum-topic">
+                    <div class="forum-topic-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="forum-topic-content">
+                        <a href="forum/topic-1.html" class="forum-topic-title">如何优化PiEEG-8的信号质量？</a>
+                        <div class="forum-topic-meta">
+                            由 <strong>张三</strong> 发布于 2025-01-15 | 分类：硬件讨论
+                        </div>
+                        <p class="forum-topic-preview">最近在使用PiEEG-8采集EEG信号时，发现信号中有较多噪声。请问有什么方法可以改善信号质量？是否需要特殊的电极配置？</p>
+                    </div>
+                    <div class="forum-topic-stats">
+                        <div class="forum-topic-stat">
+                            <i class="fas fa-eye"></i> 128
+                        </div>
+                        <div class="forum-topic-stat">
+                            <i class="fas fa-reply"></i> 15
+                        </div>
+                    </div>
+                </div>
+
+                <div class="forum-topic">
+                    <div class="forum-topic-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="forum-topic-content">
+                        <a href="forum/topic-2.html" class="forum-topic-title">Python实时脑电波分析代码分享</a>
+                        <div class="forum-topic-meta">
+                            由 <strong>李四</strong> 发布于 2025-01-14 | 分类：软件开发
+                        </div>
+                        <p class="forum-topic-preview">分享一个使用Python和PIEEG设备进行实时脑电波分析的代码库，包含滤波、特征提取和可视化功能。欢迎大家测试和改进！</p>
+                    </div>
+                    <div class="forum-topic-stats">
+                        <div class="forum-topic-stat">
+                            <i class="fas fa-eye"></i> 256
+                        </div>
+                        <div class="forum-topic-stat">
+                            <i class="fas fa-reply"></i> 23
+                        </div>
+                    </div>
+                </div>
+
+                <div class="forum-topic">
+                    <div class="forum-topic-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <div class="forum-topic-content">
+                        <a href="forum/topic-3.html" class="forum-topic-title">ardEEG与Arduino UNO R4连接问题</a>
+                        <div class="forum-topic-meta">
+                            由 <strong>王五</strong> 发布于 2025-01-13 | 分类：问题求助
+                        </div>
+                        <p class="forum-topic-preview">按照文档连接ardEEG和Arduino UNO R4，但是无法正常通信。LED灯不亮，串口也没有数据输出。有遇到类似问题的朋友吗？</p>
+                    </div>
+                    <div class="forum-topic-stats">
+                        <div class="forum-topic-stat">
+                            <i class="fas fa-eye"></i> 89
+                        </div>
+                        <div class="forum-topic-stat">
+                            <i class="fas fa-reply"></i> 8
+                        </div>
+                    </div>
+                </div>
+
+                <div class="forum-topic">
+                    <div class="forum-topic-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="forum-topic-content">
+                        <a href="forum/topic-4.html" class="forum-topic-title">脑电波频带分析方法讨论</a>
+                        <div class="forum-topic-meta">
+                            由 <strong>赵六</strong> 发布于 2025-01-12 | 分类：数据分析
+                        </div>
+                        <p class="forum-topic-preview">想讨论一下不同的脑电波频带分析方法，包括FFT、小波变换和Hilbert变换。大家都用什么方法进行频域分析？</p>
+                    </div>
+                    <div class="forum-topic-stats">
+                        <div class="forum-topic-stat">
+                            <i class="fas fa-eye"></i> 167
+                        </div>
+                        <div class="forum-topic-stat">
+                            <i class="fas fa-reply"></i> 31
+                        </div>
+                    </div>
+                </div>
+
+                <div class="forum-topic">
+                    <div class="forum-topic-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <div class="forum-topic-content">
+                        <a href="forum/topic-5.html" class="forum-topic-title">JNEEG深度学习应用案例</a>
+                        <div class="forum-topic-meta">
+                            由 <strong>孙七</strong> 发布于 2025-01-11 | 分类：硬件讨论
+                        </div>
+                        <p class="forum-topic-preview">使用JNEEG和Jetson Nano构建了一个实时脑电波分类系统，可以识别不同的认知状态。分享一些经验和遇到的挑战。</p>
+                    </div>
+                    <div class="forum-topic-stats">
+                        <div class="forum-topic-stat">
+                            <i class="fas fa-eye"></i> 203
+                        </div>
+                        <div class="forum-topic-stat">
+                            <i class="fas fa-reply"></i> 18
+                        </div>
+                    </div>
+                </div>
+
+                <div class="forum-topic">
+                    <div class="forum-topic-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="forum-topic-content">
+                        <a href="forum/topic-6.html" class="forum-topic-title">开源EEG数据处理库推荐</a>
+                        <div class="forum-topic-meta">
+                            由 <strong>周八</strong> 发布于 2025-01-10 | 分类：软件开发
+                        </div>
+                        <p class="forum-topic-preview">整理了一些好用的开源EEG数据处理库，包括MNE-Python、EEGLAB、BrainFlow等。每个库的特点和适用场景都不同。</p>
+                    </div>
+                    <div class="forum-topic-stats">
+                        <div class="forum-topic-stat">
+                            <i class="fas fa-eye"></i> 145
+                        </div>
+                        <div class="forum-topic-stat">
+                            <i class="fas fa-reply"></i> 12
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 分页 -->
+            <div class="pagination">
+                <a href="#" class="pagination-link active">1</a>
+                <a href="#" class="pagination-link">2</a>
+                <a href="#" class="pagination-link">3</a>
+                <a href="#" class="pagination-link">下一页</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>关于PIEEG</h3>
+                    <p>PIEEG提供低成本脑机接口设备，让神经科学研究变得触手可及。我们的使命是让脑机接口技术普及化，为研究者、学生和爱好者提供可靠的工具。</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>产品</h3>
+                    <ul class="footer-links">
+                        <li><a href="products/pieeg-8.html">PiEEG-8</a></li>
+                        <li><a href="products/pieeg-16.html">PiEEG-16</a></li>
+                        <li><a href="products/ardeeg.html">ardEEG</a></li>
+                        <li><a href="products/jneeg.html">JNEEG</a></li>
+                        <li><a href="products/accessories.html">配件</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>资源</h3>
+                    <ul class="footer-links">
+                        <li><a href="docs/technical.html">技术文档</a></li>
+                        <li><a href="https://github.com/pieeg">GitHub代码库</a></li>
+                        <li><a href="docs/courses.html">信号处理课程</a></li>
+                        <li><a href="docs/faq.html">常见问题</a></li>
+                        <li><a href="downloads.html">下载中心</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>联系我们</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@pieeg.com">info@pieeg.com</a></li>
+                        <li><i class="fas fa-globe"></i> <a href="https://pieeg.com">pieeg.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 PIEEG. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 导航栏响应式
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbarToggle = document.getElementById('navbar-toggle');
+            const navbarMenu = document.getElementById('navbar-menu');
+            
+            if (navbarToggle && navbarMenu) {
+                navbarToggle.addEventListener('click', function() {
+                    navbarMenu.classList.toggle('active');
+                });
+            }
+
+            // 论坛分类切换
+            const categories = document.querySelectorAll('.forum-category');
+            categories.forEach(category => {
+                category.addEventListener('click', function() {
+                    categories.forEach(c => c.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

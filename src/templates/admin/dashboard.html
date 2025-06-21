@@ -1,0 +1,200 @@
+{% extends 'admin/base.html' %}
+
+{% block title %}控制面板 - PIEEG管理后台{% endblock %}
+
+{% block content %}
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">控制面板</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="container-fluid">
+        <!-- 统计卡片 -->
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="stat-card">
+                    <div class="stat-icon bg-primary">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>{{ products_count }}</h3>
+                        <p>产品总数</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="stat-card">
+                    <div class="stat-icon bg-secondary">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>{{ users_count }}</h3>
+                        <p>用户总数</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="stat-card">
+                    <div class="stat-icon bg-success">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>{{ topics_count }}</h3>
+                        <p>论坛话题</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="stat-card">
+                    <div class="stat-icon bg-danger">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>{{ messages_count }}</h3>
+                        <p>未读留言</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 最近消息和用户 -->
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>最近留言</h5>
+                        <a href="{{ url_for('admin.messages') }}" class="btn btn-sm btn-outline-primary">查看全部</a>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>发送人</th>
+                                        <th>主题</th>
+                                        <th>时间</th>
+                                        <th>状态</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for message in recent_messages %}
+                                    <tr>
+                                        <td>{{ message.name }}</td>
+                                        <td>
+                                            <a href="{{ url_for('admin.view_message', id=message.id) }}">
+                                                {{ message.subject or '无主题' }}
+                                            </a>
+                                        </td>
+                                        <td>{{ message.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+                                        <td>
+                                            {% if message.is_read %}
+                                                <span class="badge badge-success">已读</span>
+                                            {% else %}
+                                                <span class="badge badge-danger">未读</span>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    {% else %}
+                                    <tr>
+                                        <td colspan="4" class="text-center">暂无留言</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>最近注册用户</h5>
+                        <a href="{{ url_for('admin.users') }}" class="btn btn-sm btn-outline-primary">查看全部</a>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>用户名</th>
+                                        <th>邮箱</th>
+                                        <th>角色</th>
+                                        <th>注册时间</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for user in recent_users %}
+                                    <tr>
+                                        <td>{{ user.username }}</td>
+                                        <td>{{ user.email }}</td>
+                                        <td>
+                                            {% if user.role == 'admin' %}
+                                                <span class="badge badge-danger">管理员</span>
+                                            {% elif user.role == 'editor' %}
+                                                <span class="badge badge-warning">编辑</span>
+                                            {% else %}
+                                                <span class="badge badge-info">用户</span>
+                                            {% endif %}
+                                        </td>
+                                        <td>{{ user.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+                                    </tr>
+                                    {% else %}
+                                    <tr>
+                                        <td colspan="4" class="text-center">暂无用户</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 快速链接 -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>快速操作</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-6">
+                                <a href="{{ url_for('admin.create_product') }}" class="btn btn-primary btn-block mb-3">
+                                    <i class="fas fa-plus mr-2"></i> 添加产品
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <a href="{{ url_for('admin.create_news') }}" class="btn btn-secondary btn-block mb-3">
+                                    <i class="fas fa-plus mr-2"></i> 发布公告
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <a href="{{ url_for('admin.create_page') }}" class="btn btn-info btn-block mb-3">
+                                    <i class="fas fa-plus mr-2"></i> 创建页面
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <a href="{{ url_for('admin.settings') }}" class="btn btn-dark btn-block mb-3">
+                                    <i class="fas fa-cog mr-2"></i> 网站设置
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

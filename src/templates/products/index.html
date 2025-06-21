@@ -1,0 +1,239 @@
+{% extends 'base.html' %}
+
+{% block title %}产品中心 - PIEEG{% endblock %}
+
+{% block content %}
+<div class="products-container">
+    <div class="container py-5">
+        <h1 class="page-title text-center mb-5">产品中心</h1>
+        
+        <!-- 产品分类筛选 -->
+        <div class="product-filters mb-4">
+            <div class="row">
+                <div class="col-md-8">
+                    <ul class="nav nav-pills">
+                        <li class="nav-item">
+                            <a class="nav-link {% if not category %}active{% endif %}" href="{{ url_for('main.products') }}">全部产品</a>
+                        </li>
+                        {% for cat in categories %}
+                        <li class="nav-item">
+                            <a class="nav-link {% if category == cat.slug %}active{% endif %}" href="{{ url_for('main.products', category=cat.slug) }}">{{ cat.name }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="搜索产品..." id="product-search">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="search-btn">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 产品列表 -->
+        <div class="row" id="product-list">
+            {% for product in products %}
+            <div class="col-md-4 col-lg-3 mb-4 product-item">
+                <div class="card product-card h-100">
+                    <div class="card-img-top-wrapper">
+                        {% if product.image_url %}
+                            <img src="{{ product.image_url }}" class="card-img-top" alt="{{ product.name }}">
+                        {% else %}
+                            <div class="no-image-placeholder">
+                                <i class="fas fa-image"></i>
+                            </div>
+                        {% endif %}
+                        
+                        {% if product.is_featured %}
+                        <span class="badge badge-featured">
+                            <i class="fas fa-star mr-1"></i> 推荐
+                        </span>
+                        {% endif %}
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text">{{ product.short_description|truncate(100) }}</p>
+                        <div class="product-price">
+                            <span>¥{{ product.price }}</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent border-top-0">
+                        <div class="d-flex justify-content-between">
+                            <a href="{{ url_for('main.product_detail', slug=product.slug) }}" class="btn btn-outline-primary btn-sm">
+                                查看详情
+                            </a>
+                            <a href="{{ product.purchase_url or '#' }}" class="btn btn-primary btn-sm">
+                                <i class="fas fa-shopping-cart mr-1"></i> 购买
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="col-12 text-center py-5">
+                <div class="empty-state">
+                    <i class="fas fa-box-open mb-3"></i>
+                    <h4>暂无产品</h4>
+                    <p class="text-muted">当前分类下没有产品，请尝试其他分类</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <!-- 分页 -->
+        {% if pagination and pagination.pages > 1 %}
+        <nav aria-label="Page navigation" class="mt-4">
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if pagination.page == 1 %}disabled{% endif %}">
+                    <a class="page-link" href="{{ url_for('main.products', page=pagination.page-1, category=category) }}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                
+                {% for p in range(1, pagination.pages + 1) %}
+                <li class="page-item {% if p == pagination.page %}active{% endif %}">
+                    <a class="page-link" href="{{ url_for('main.products', page=p, category=category) }}">{{ p }}</a>
+                </li>
+                {% endfor %}
+                
+                <li class="page-item {% if pagination.page == pagination.pages %}disabled{% endif %}">
+                    <a class="page-link" href="{{ url_for('main.products', page=pagination.page+1, category=category) }}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .product-card {
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0,0,0,0.1);
+        overflow: hidden;
+    }
+    
+    .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .card-img-top-wrapper {
+        position: relative;
+        height: 200px;
+        overflow: hidden;
+    }
+    
+    .card-img-top {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+    
+    .product-card:hover .card-img-top {
+        transform: scale(1.05);
+    }
+    
+    .badge-featured {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+    }
+    
+    .product-price {
+        font-weight: 600;
+        color: #e63946;
+        margin-top: 10px;
+    }
+    
+    .no-image-placeholder {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f8f9fa;
+        color: #adb5bd;
+    }
+    
+    .no-image-placeholder i {
+        font-size: 2rem;
+    }
+    
+    .empty-state {
+        padding: 40px 0;
+    }
+    
+    .empty-state i {
+        font-size: 3rem;
+        color: #adb5bd;
+        display: block;
+    }
+    
+    .nav-pills .nav-link {
+        color: #495057;
+        border-radius: 20px;
+        padding: 8px 16px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+    
+    .nav-pills .nav-link.active {
+        background-color: var(--primary-color);
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    $(document).ready(function() {
+        // 产品搜索功能
+        $('#search-btn, #product-search').on('click keyup', function(e) {
+            if (e.type === 'click' || e.keyCode === 13) {
+                var searchTerm = $('#product-search').val().toLowerCase();
+                
+                $('.product-item').each(function() {
+                    var productName = $(this).find('.card-title').text().toLowerCase();
+                    var productDesc = $(this).find('.card-text').text().toLowerCase();
+                    
+                    if (productName.includes(searchTerm) || productDesc.includes(searchTerm)) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+                
+                // 显示空状态
+                if ($('.product-item:visible').length === 0) {
+                    if ($('#no-results').length === 0) {
+                        $('#product-list').append(
+                            '<div id="no-results" class="col-12 text-center py-5">' +
+                            '<div class="empty-state">' +
+                            '<i class="fas fa-search mb-3"></i>' +
+                            '<h4>未找到产品</h4>' +
+                            '<p class="text-muted">没有找到匹配的产品，请尝试其他关键词</p>' +
+                            '</div>' +
+                            '</div>'
+                        );
+                    }
+                } else {
+                    $('#no-results').remove();
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}

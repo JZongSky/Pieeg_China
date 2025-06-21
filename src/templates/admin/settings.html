@@ -1,0 +1,100 @@
+{% extends 'admin/base.html' %}
+
+{% block title %}网站设置 - PIEEG管理后台{% endblock %}
+
+{% block content %}
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">网站设置</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <form action="{{ url_for('admin.settings') }}" method="post">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4 class="mb-3">基本信息</h4>
+                            
+                            <div class="form-group">
+                                <label for="site_name">网站名称</label>
+                                <input type="text" id="site_name" name="site_name" class="form-control" value="{{ settings.site_name }}">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="site_description">网站描述</label>
+                                <textarea id="site_description" name="site_description" class="form-control" rows="3">{{ settings.site_description }}</textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contact_email">联系邮箱</label>
+                                <input type="email" id="contact_email" name="contact_email" class="form-control" value="{{ settings.contact_email }}">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="icp_number">ICP备案号</label>
+                                <input type="text" id="icp_number" name="icp_number" class="form-control" value="{{ settings.icp_number }}">
+                            </div>
+                            
+                            <h4 class="mt-4 mb-3">社交媒体</h4>
+                            
+                            <div class="form-group">
+                                <label for="github_url">GitHub链接</label>
+                                <input type="url" id="github_url" name="github_url" class="form-control" value="{{ settings.github_url }}">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="youtube_url">YouTube链接</label>
+                                <input type="url" id="youtube_url" name="youtube_url" class="form-control" value="{{ settings.youtube_url }}">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="twitter_url">Twitter链接</label>
+                                <input type="url" id="twitter_url" name="twitter_url" class="form-control" value="{{ settings.twitter_url }}">
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <h4 class="mb-3">论坛设置</h4>
+                            
+                            <div class="form-group">
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="enable_forum" name="enable_forum" {% if settings.enable_forum %}checked{% endif %}>
+                                    <label class="custom-control-label" for="enable_forum">启用论坛</label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="allow_guest_view" name="allow_guest_view" {% if settings.allow_guest_view %}checked{% endif %}>
+                                    <label class="custom-control-label" for="allow_guest_view">允许游客查看论坛</label>
+                                </div>
+                            </div>
+                            
+                            <h4 class="mt-4 mb-3">其他设置</h4>
+                            
+                            <div class="form-group">
+                                <label for="google_analytics_id">Google Analytics ID</label>
+                                <input type="text" id="google_analytics_id" name="google_analytics_id" class="form-control" value="{{ settings.google_analytics_id }}">
+                                <small class="form-text text-muted">格式: UA-XXXXXXXXX-X 或 G-XXXXXXXXXX</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group mt-4">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save mr-1"></i> 保存设置
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

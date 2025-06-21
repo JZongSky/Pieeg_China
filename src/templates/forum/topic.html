@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ topic.title }} - PIEEG 社区论坛{% endblock %}
+
+{% block content %}
+<div class="forum-section">
+  <div class="container">
+    <div class="forum-container">
+      <div class="forum-header">
+        <div class="breadcrumb">
+          <a href="{{ url_for('forum.index') }}">论坛首页</a> &gt; 
+          {% for category in categories %}
+            {% if category.id == topic.category_id %}
+              <a href="{{ url_for('forum.category', category_id=category.id) }}">{{ category.name }}</a>
+            {% endif %}
+          {% endfor %}
+          &gt; 话题详情
+        </div>
+      </div>
+
+      <div class="topic-detail">
+        <h2 class="topic-title">{{ topic.title }}</h2>
+        <div class="topic-meta">
+          由 <strong>{{ topic.author }}</strong> 发布于 {{ topic.created_at }} | 
+          浏览: {{ topic.views }} | 回复: {{ topic.replies }}
+        </div>
+        
+        <div class="topic-content">
+          {{ topic.content | safe }}
+        </div>
+      </div>
+
+      <div class="topic-replies">
+        <h3>回复 ({{ replies|length }})</h3>
+        
+        {% if replies %}
+          {% for reply in replies %}
+          <div class="reply-item">
+            <div class="reply-author">
+              <div class="author-avatar">
+                <i class="fas fa-user-circle"></i>
+              </div>
+              <div class="author-name">{{ reply.author }}</div>
+              <div class="reply-time">{{ reply.created_at }}</div>
+            </div>
+            <div class="reply-content">
+              {{ reply.content | safe }}
+            </div>
+          </div>
+          {% endfor %}
+        {% else %}
+          <div class="no-replies">
+            <p>暂无回复，成为第一个回复的用户吧！</p>
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="reply-form">
+        <h3>发表回复</h3>
+        <form action="{{ url_for('forum.reply', topic_id=topic.id) }}" method="post">
+          <div class="form-group">
+            <label for="author">您的昵称</label>
+            <input type="text" id="author" name="author" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="content">回复内容</label>
+            <textarea id="content" name="content" class="form-control" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">提交回复</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

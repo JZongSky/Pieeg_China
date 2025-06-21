@@ -1,0 +1,82 @@
+{% extends 'admin/base.html' %}
+
+{% block title %}创建产品分类 - PIEEG管理后台{% endblock %}
+
+{% block content %}
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">创建产品分类</h1>
+            </div>
+            <div class="col-sm-6">
+                <div class="float-right">
+                    <a href="{{ url_for('admin.product_categories') }}" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left mr-1"></i> 返回分类列表
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-body">
+                <form action="{{ url_for('admin.create_product_category') }}" method="post">
+                    <div class="form-group">
+                        <label for="name">分类名称 <span class="text-danger">*</span></label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="slug">分类别名 <span class="text-danger">*</span></label>
+                        <input type="text" id="slug" name="slug" class="form-control" required>
+                        <small class="form-text text-muted">用于URL，只能包含字母、数字、连字符和下划线</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="description">分类描述</label>
+                        <textarea id="description" name="description" class="form-control" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="order">排序</label>
+                        <input type="number" id="order" name="order" class="form-control" value="0" min="0">
+                        <small class="form-text text-muted">数字越小排序越靠前</small>
+                    </div>
+                    
+                    <div class="form-group mt-4">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save mr-1"></i> 创建分类
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    $(document).ready(function() {
+        // 分类名称自动生成别名
+        $('#name').on('input', function() {
+            if (!$('#slug').data('manually-changed')) {
+                const slug = $(this).val()
+                    .toLowerCase()
+                    .replace(/[^\w\s-]/g, '')
+                    .replace(/\s+/g, '-')
+                    .replace(/-+/g, '-');
+                $('#slug').val(slug);
+            }
+        });
+        
+        $('#slug').on('input', function() {
+            $(this).data('manually-changed', true);
+        });
+    });
+</script>
+{% endblock %}

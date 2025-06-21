@@ -1,0 +1,52 @@
+{% extends 'admin/base.html' %}
+
+{% block title %}初始化管理员账户 - PIEEG管理后台{% endblock %}
+
+{% block content_no_sidebar %}
+<div class="login-container">
+    <div class="login-box">
+        <div class="login-logo">
+            <h1>PIEEG<span>管理后台</span></h1>
+        </div>
+        
+        <div class="mb-4">
+            <h4 class="text-center">初始化管理员账户</h4>
+            <p class="text-center text-muted">请创建一个管理员账户以访问管理后台</p>
+        </div>
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <div class="login-form">
+            <form method="post" action="{{ url_for('admin.setup') }}">
+                <div class="form-group">
+                    <label for="username">用户名 <span class="text-danger">*</span></label>
+                    <input type="text" id="username" name="username" class="form-control" required autofocus>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">邮箱 <span class="text-danger">*</span></label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">密码 <span class="text-danger">*</span></label>
+                    <input type="password" id="password" name="password" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirm_password">确认密码 <span class="text-danger">*</span></label>
+                    <input type="password" id="confirm_password" name="confirm_password" class="form-control" required>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block">创建管理员账户</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

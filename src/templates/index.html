@@ -1,0 +1,258 @@
+{% extends 'base.html' %}
+
+{% block title %}PIEEG - 低成本脑机接口设备{% endblock %}
+
+{% block content %}
+<!-- 英雄区 -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>低成本脑机接口，人人可用</h1>
+        <p>PIEEG提供易于使用和购买的低成本脑机接口设备，让神经科学研究变得触手可及。我们的设备可测量EEG、EMG和ECG生物信号，适用于Raspberry Pi、Arduino和Jetson Nano平台。</p>
+        <div class="hero-buttons">
+          <a href="#products" class="btn btn-primary">探索产品</a>
+          <a href="{{ url_for('forum.index') }}" class="btn btn-outline">加入社区</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="{{ url_for('static', filename='images/pieeg-hero.png') }}" alt="PIEEG设备">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 产品概览 -->
+<section id="products" class="products">
+  <div class="container">
+    <div class="section-title">
+      <h2>我们的产品</h2>
+      <p>探索PIEEG系列产品，为您的研究、学习和创新项目提供支持</p>
+    </div>
+
+    <div class="product-grid">
+      <!-- PiEEG-8 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="{{ url_for('static', filename='images/pieeg-8.png') }}" alt="PiEEG-8">
+        </div>
+        <div class="product-content">
+          <h3>PiEEG-8</h3>
+          <p>8通道脑机接口设备，兼容Raspberry Pi，用于测量EEG、EMG和ECG生物信号</p>
+          <ul class="product-features">
+            <li>兼容Raspberry Pi 3, 4和5</li>
+            <li>8个通道连接湿电极或干电极</li>
+            <li>24位分辨率，250 SPS至16 kSPS采样率</li>
+            <li>可编程信号增益：1, 2, 4, 6, 8, 12, 24</li>
+          </ul>
+          <a href="#" class="btn btn-primary">了解更多</a>
+        </div>
+      </div>
+
+      <!-- PiEEG-16 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="{{ url_for('static', filename='images/pieeg-16.png') }}" alt="PiEEG-16">
+        </div>
+        <div class="product-content">
+          <h3>PiEEG-16</h3>
+          <p>16通道脑机接口设备，兼容Raspberry Pi，用于测量EEG、EMG和ECG生物信号</p>
+          <ul class="product-features">
+            <li>兼容Raspberry Pi 5</li>
+            <li>16个通道连接湿电极或干电极</li>
+            <li>24位分辨率，250 SPS至16 kSPS采样率</li>
+            <li>可编程信号增益：1, 2, 4, 6, 8, 12, 24</li>
+          </ul>
+          <a href="#" class="btn btn-primary">了解更多</a>
+        </div>
+      </div>
+
+      <!-- ardEEG -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="{{ url_for('static', filename='images/ardeeg.png') }}" alt="ardEEG">
+        </div>
+        <div class="product-content">
+          <h3>ardEEG</h3>
+          <p>Arduino扩展板，8通道脑机接口设备，用于测量EEG、EMG和ECG生物信号</p>
+          <ul class="product-features">
+            <li>兼容Arduino UNO R4 WiFi</li>
+            <li>8个通道连接湿电极或干电极</li>
+            <li>24位分辨率，250 SPS至16 kSPS采样率</li>
+            <li>低功耗，适合可穿戴设备应用</li>
+          </ul>
+          <a href="#" class="btn btn-primary">了解更多</a>
+        </div>
+      </div>
+
+      <!-- JNEEG -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="{{ url_for('static', filename='images/jneeg.png') }}" alt="JNEEG">
+        </div>
+        <div class="product-content">
+          <h3>JNEEG</h3>
+          <p>Jetson Nano扩展板，8通道脑机接口设备，专为深度学习应用设计</p>
+          <ul class="product-features">
+            <li>兼容Jetson Nano</li>
+            <li>8个通道连接湿电极或干电极</li>
+            <li>24位分辨率，250 SPS至16 kSPS采样率</li>
+            <li>适合实时机器学习和深度学习应用</li>
+          </ul>
+          <a href="#" class="btn btn-primary">了解更多</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 数据可视化 -->
+<section class="chart-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>数据可视化</h2>
+      <p>探索PIEEG设备采集的脑电波数据和信号处理结果</p>
+    </div>
+
+    <div class="chart-row">
+      <div class="chart-col">
+        <div class="chart-container" id="eeg-waveform-chart"></div>
+      </div>
+      <div class="chart-col">
+        <div class="chart-container" id="spectral-analysis-chart"></div>
+      </div>
+    </div>
+
+    <div class="chart-row">
+      <div class="chart-col">
+        <div class="chart-container" id="multi-channel-eeg-chart"></div>
+      </div>
+      <div class="chart-col">
+        <div class="chart-container" id="brain-topo-map"></div>
+      </div>
+    </div>
+
+    <div class="chart-row">
+      <div class="chart-col">
+        <div class="chart-container" id="product-comparison-chart"></div>
+      </div>
+      <div class="chart-col">
+        <div class="chart-container" id="frequency-band-chart"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 应用场景 -->
+<section class="applications">
+  <div class="container">
+    <div class="section-title">
+      <h2>应用场景</h2>
+      <p>PIEEG设备可应用于多种领域，从研究到娱乐，从健康到教育</p>
+    </div>
+
+    <div class="application-grid">
+      <div class="application-card">
+        <div class="application-icon">
+          <i class="fas fa-brain"></i>
+        </div>
+        <div class="application-content">
+          <h3>神经科学研究</h3>
+          <p>低成本设备让更多研究者能够进行脑电波研究，推动神经科学发展</p>
+        </div>
+      </div>
+
+      <div class="application-card">
+        <div class="application-icon">
+          <i class="fas fa-gamepad"></i>
+        </div>
+        <div class="application-content">
+          <h3>脑控游戏</h3>
+          <p>使用脑电波控制游戏，创造全新的交互体验</p>
+        </div>
+      </div>
+
+      <div class="application-card">
+        <div class="application-icon">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div class="application-content">
+          <h3>脑控机器人</h3>
+          <p>通过脑机接口控制机器人，实现思维控制的未来科技</p>
+        </div>
+      </div>
+
+      <div class="application-card">
+        <div class="application-icon">
+          <i class="fas fa-heartbeat"></i>
+        </div>
+        <div class="application-content">
+          <h3>健康监测</h3>
+          <p>监测脑电波和心电图数据，辅助健康管理和压力监控</p>
+        </div>
+      </div>
+
+      <div class="application-card">
+        <div class="application-icon">
+          <i class="fas fa-spa"></i>
+        </div>
+        <div class="application-content">
+          <h3>冥想辅助</h3>
+          <p>实时监测冥想状态，提供反馈，帮助改善冥想质量</p>
+        </div>
+      </div>
+
+      <div class="application-card">
+        <div class="application-icon">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <div class="application-content">
+          <h3>教育与学习</h3>
+          <p>通过实践项目学习神经科学、信号处理和机器学习</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 社区论坛预览 -->
+<section class="forum-preview">
+  <div class="container">
+    <div class="section-title">
+      <h2>社区论坛</h2>
+      <p>加入PIEEG社区，分享经验、提问和讨论</p>
+    </div>
+
+    <div class="forum-container">
+      <div class="forum-header">
+        <h3>最新话题</h3>
+        <a href="{{ url_for('forum.index') }}" class="btn btn-primary">访问论坛</a>
+      </div>
+
+      <div class="forum-topics">
+        {% for topic in forum_topics[:3] %}
+        <div class="forum-topic">
+          <div class="forum-topic-icon">
+            <i class="fas fa-comments"></i>
+          </div>
+          <div class="forum-topic-content">
+            <a href="{{ url_for('forum.topic', topic_id=topic.id) }}" class="forum-topic-title">{{ topic.title }}</a>
+            <div class="forum-topic-meta">
+              由 <strong>{{ topic.author }}</strong> 发布于 {{ topic.created_at }}
+            </div>
+          </div>
+          <div class="forum-topic-stats">
+            <div class="forum-topic-stat">
+              <i class="fas fa-eye"></i> {{ topic.views }}
+            </div>
+            <div class="forum-topic-stat">
+              <i class="fas fa-reply"></i> {{ topic.replies }}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
