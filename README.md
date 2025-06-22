@@ -1,489 +1,826 @@
-# PIEEG 官网项目
+# PIEEG 官方网站
 
-## 项目概述
+基于 Hugo 静态网站生成器构建的 PIEEG 低成本脑机接口设备官方网站，提供产品展示、数据可视化和技术文档功能。
 
-PIEEG官网是一个展示低成本脑机接口设备的现代化网站，包含产品展示、交互式数据可视化、社区论坛和管理系统。网站采用Flask框架开发，具有响应式设计，支持容器化部署。
+## 🏗️ 项目结构
 
-## 主要功能
+```
+pieeg/
+├── hugo.toml               # Hugo主配置文件
+├── content/                # 页面内容（Markdown）
+│   ├── _index.md          # 首页内容
+│   ├── disclaimer.md      # 免责声明
+│   └── products/          # 产品页面
+│       ├── _index.md      # 产品索引
+│       ├── pieeg-8.md     # PiEEG-8产品页
+│       ├── pieeg-16.md    # PiEEG-16产品页
+│       ├── ardeeg.md      # ardEEG产品页
+│       ├── jneeg.md       # JNEEG产品页
+│       └── education-kit.md # 教育套件页
+├── layouts/                # 模板文件
+│   ├── _default/
+│   │   ├── baseof.html    # 基础模板
+│   │   └── single.html    # 单页模板
+│   ├── index.html         # 首页模板
+│   └── products/          # 产品页面模板
+│       ├── list.html      # 产品列表模板
+│       └── single.html    # 产品详情模板
+├── static/                 # 静态资源
+│   ├── css/
+│   │   └── style.css      # 主要样式文件
+│   ├── js/
+│   │   └── charts.js      # 数据可视化脚本
+│   ├── images/            # 产品图片和资源
+│   └── data/
+│       └── sample_eeg_data.json # 示例EEG数据
+├── data/                   # 数据配置文件
+│   ├── products.yaml      # 产品数据
+│   └── applications.yaml  # 应用场景数据
+├── public/                 # 构建输出目录（自动生成）
+├── docs/                   # 项目文档
+└── archetypes/             # 内容模板
+    └── default.md
+```
 
-### 前台功能
-- **首页展示**：品牌介绍、产品概览、数据可视化
-- **产品中心**：详细的产品信息、规格参数、购买链接
-- **数据可视化**：交互式图表展示EEG、EMG、ECG数据
-- **社区论坛**：用户交流、技术讨论、项目分享
-- **关于我们**：公司介绍、联系方式
-
-### 后台管理
-- **用户管理**：用户账户、权限管理
-- **产品管理**：产品信息、分类、图片管理
-- **内容管理**：新闻、页面内容管理
-- **论坛管理**：话题、回复、分类管理
-- **系统设置**：网站配置、参数设置
-
-## 技术栈
-
-### 后端
-- **框架**：Flask 3.0.3
-- **数据库**：MySQL 8.0
-- **ORM**：SQLAlchemy
-- **缓存**：Redis（可选）
-- **服务器**：Gunicorn + Nginx
-
-### 前端
-- **模板引擎**：Jinja2
-- **样式**：CSS3 + 响应式设计
-- **交互**：JavaScript + Plotly.js
-- **图标**：Font Awesome
-
-### 部署
-- **容器化**：Docker + Docker Compose
-- **反向代理**：Nginx
-- **进程管理**：Gunicorn
-- **数据持久化**：Docker Volumes
-
-## 快速开始
+## 🚀 快速开始
 
 ### 环境要求
 
-- Docker 20.0+
-- Docker Compose 2.0+
-- Python 3.12+（开发环境）
-- MySQL 8.0+（开发环境）
+- **Hugo Extended** 版本 0.100.0 或更高
+- **Git** 用于版本控制
+- **现代浏览器** 用于预览和测试
 
-### 一键部署
+### 安装 Hugo
 
-#### 1. 克隆项目
 ```bash
+# macOS
+brew install hugo
+
+# Windows (Chocolatey)
+choco install hugo-extended
+
+# Windows (Scoop)
+scoop install hugo-extended
+
+# Linux (Snap)
+snap install hugo --channel=extended
+
+# Linux (APT)
+sudo apt install hugo
+
+# 验证安装
+hugo version
+```
+
+### 本地开发
+
+```bash
+# 克隆项目
 git clone <repository-url>
 cd pieeg
+
+# 启动开发服务器
+hugo server --buildDrafts --bind 0.0.0.0 --port 1313
+
+# 或者使用构建脚本
+./build.sh dev
 ```
 
-#### 2. 生产环境部署
-```bash
-# 设置执行权限
-chmod +x deploy.sh
+访问 http://localhost:1313 查看网站
 
-# 启动生产环境
-./deploy.sh prod
-```
-
-#### 3. 开发环境启动
-```bash
-# 启动开发环境
-./deploy.sh dev
-```
-
-### 部署脚本说明
-
-部署脚本 `deploy.sh` 提供了完整的部署和管理功能：
+### 构建生产版本
 
 ```bash
-# 查看帮助
-./deploy.sh help
+# 构建静态网站
+hugo --minify
 
-# 启动生产环境
-./deploy.sh prod
+# 或使用构建脚本
+./build.sh prod
 
-# 启动开发环境  
-./deploy.sh dev
-
-# 停止服务
-./deploy.sh stop
-
-# 重启服务
-./deploy.sh restart
-
-# 查看日志
-./deploy.sh logs
-./deploy.sh logs web  # 查看特定服务日志
-
-# 备份数据库
-./deploy.sh backup
-
-# 恢复数据库
-./deploy.sh restore backup_20240101_120000.sql
-
-# 更新应用
-./deploy.sh update
-
-# 清理Docker资源
-./deploy.sh clean
+# 输出目录: public/
 ```
 
-## 手动部署
+## ⚙️ 配置选项
 
-### 1. 环境配置
+### 主配置文件 (hugo.toml)
 
-复制环境配置文件：
-```bash
-cp .env.example .env
+```toml
+# 基本配置
+baseURL = 'https://pieeg.cn'
+languageCode = 'zh-CN'
+title = 'PIEEG - 低成本脑机接口设备'
+defaultContentLanguage = 'zh-cn'
+hasCJKLanguage = true
+
+# 构建配置
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+
+# 输出配置
+disableKinds = ['taxonomy', 'term']
+enableEmoji = true
+enableGitInfo = true
+enableRobotsTXT = true
+
+# 网站参数
+[params]
+  description = "PIEEG提供低成本脑机接口设备，包括EEG、EMG、ECG采集方案，支持教育和研究应用"
+  keywords = "脑机接口,EEG,EMG,ECG,Arduino,开源硬件,神经科学,生物信号"
+  author = "PIEEG Team"
+  version = "2.0.0"
+  
+  # 社交媒体
+  [params.social]
+    github = "https://github.com/pieeg"
+    email = "info@pieeg.cn"
+
+# 菜单配置
+[menu]
+  [[menu.main]]
+    name = "首页"
+    url = "/"
+    weight = 10
+  [[menu.main]]
+    name = "产品中心"
+    url = "/products/"
+    weight = 20
+  [[menu.main]]
+    name = "数据可视化"
+    url = "/#visualization"
+    weight = 30
+
+# 标记配置
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = 'github'
+    lineNos = true
+
+# 分析配置
+[params.analytics]
+  [params.analytics.baidu]
+    enabled = true
+    site_id = "your_baidu_site_id_here"
+  [params.analytics.google]
+    enabled = false
+    tracking_id = ""
+
+# 压缩配置
+[minify]
+  disableCSS = false
+  disableHTML = false
+  disableJS = false
+  disableJSON = false
+  disableSVG = false
+  disableXML = false
+
+# 图像处理配置
+[imaging]
+  quality = 85
+  resampleFilter = "lanczos"
+  [imaging.exif]
+    includeFields = ""
+    excludeFields = ".*"
+    disableDate = false
+    disableLatLong = true
 ```
 
-编辑 `.env` 文件，修改相应配置：
-```bash
-# Flask配置
-FLASK_APP=src.main
-FLASK_ENV=production
-SECRET_KEY=your-production-secret-key
+### 产品数据配置 (data/products.yaml)
 
-# 数据库配置
-DB_USERNAME=pieeg_user
-DB_PASSWORD=your-database-password
-DB_HOST=localhost
-DB_PORT=3306
-DB_NAME=pieeg_db
+```yaml
+- name: "PiEEG-8"
+  subtitle: "8通道EEG采集板"
+  image: "images/pieeg8/pieeg8-1.png"
+  price: "¥899"
+  description: "基于树莓派的8通道EEG信号采集板，适合教学和基础研究"
+  features:
+    - "8通道同步采集"
+    - "24位ADC精度"
+    - "250Hz采样率"
+    - "树莓派兼容"
+    - "Python SDK"
+  specifications:
+    - "输入阻抗: >100MΩ"
+    - "CMRR: >110dB"
+    - "噪声: <1μVrms"
+    - "带宽: 0.1-100Hz"
+  link: "products/pieeg-8/"
+  order: 1
+
+- name: "PiEEG-16"
+  subtitle: "16通道EEG采集板"
+  image: "images/pieeg16/pieeg16-1.png"
+  price: "¥1599"
+  description: "专业级16通道EEG信号采集系统，支持高精度脑电信号研究"
+  features:
+    - "16通道同步采集"
+    - "24位ADC精度"
+    - "500Hz采样率"
+    - "低噪声设计"
+    - "实时处理"
+  specifications:
+    - "输入阻抗: >100MΩ"
+    - "CMRR: >120dB"
+    - "噪声: <0.8μVrms"
+    - "带宽: 0.1-200Hz"
+  link: "products/pieeg-16/"
+  order: 2
 ```
 
-### 2. Docker部署
+### 应用场景配置 (data/applications.yaml)
 
-#### 构建和启动服务
-```bash
-# 构建并启动所有服务
-docker-compose up -d --build
+```yaml
+- title: "脑机接口研究"
+  icon: "fas fa-brain"
+  description: "支持P300、SSVEP、运动想象等经典BCI范式研究，提供完整的信号处理工具链"
 
-# 查看服务状态
-docker-compose ps
+- title: "神经反馈训练"
+  icon: "fas fa-wave-square"
+  description: "实时脑电反馈系统，支持注意力训练、冥想状态监测等应用"
 
-# 查看日志
-docker-compose logs -f
+- title: "教育教学"
+  icon: "fas fa-graduation-cap"
+  description: "配套教学课程和实验指导，适用于生物医学工程、神经科学等专业教学"
+
+- title: "睡眠监测"
+  icon: "fas fa-bed"
+  description: "长时间睡眠EEG监测，支持睡眠分期分析和睡眠质量评估"
 ```
 
-#### 初始化数据库
-```bash
-# 进入Web容器
-docker-compose exec web bash
+## 📝 内容管理
 
-# 运行初始化脚本
-python init_db.py
+### 修改首页内容
+
+编辑 `content/_index.md`：
+
+```yaml
+---
+title: "PIEEG - 低成本脑机接口设备"
+description: "专业的脑机接口硬件解决方案"
+draft: false
+---
+
+# 首页内容使用模板和数据文件动态生成
+# 修改产品信息请编辑 data/products.yaml
+# 修改应用场景请编辑 data/applications.yaml
 ```
 
-### 3. 传统部署
-
-#### 安装依赖
-```bash
-# 创建虚拟环境
-python3 -m venv venv
-source venv/bin/activate
-
-# 安装依赖
-pip install -r requirements.txt
-```
-
-#### 配置数据库
-```bash
-# 创建数据库
-mysql -u root -p
-CREATE DATABASE pieeg_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-CREATE USER 'pieeg_user'@'localhost' IDENTIFIED BY 'password';
-GRANT ALL PRIVILEGES ON pieeg_db.* TO 'pieeg_user'@'localhost';
-FLUSH PRIVILEGES;
-```
-
-#### 初始化应用
-```bash
-# 初始化数据库
-python init_db.py
-
-# 启动应用
-gunicorn --bind 0.0.0.0:5000 --workers 4 src.main:app
-```
-
-## 开发指南
-
-### 目录结构
-```
-pieeg/
-├── src/                    # 源代码目录
-│   ├── models/            # 数据模型
-│   ├── routes/            # 路由处理
-│   ├── templates/         # 模板文件
-│   ├── static/            # 静态资源
-│   └── main.py           # 应用入口
-├── migrations/            # 数据库迁移
-├── logs/                 # 日志文件
-├── ssl/                  # SSL证书
-├── docker-compose.yml    # Docker编排
-├── Dockerfile           # Docker构建
-├── nginx.conf           # Nginx配置
-├── deploy.sh            # 部署脚本
-├── init_db.py          # 数据库初始化
-└── requirements.txt    # Python依赖
-```
-
-### 开发环境搭建
-
-1. **克隆项目**
-```bash
-git clone <repository-url>
-cd pieeg
-```
-
-2. **创建虚拟环境**
-```bash
-python3 -m venv venv
-source venv/bin/activate  # Linux/Mac
-# 或
-venv\Scripts\activate     # Windows
-```
-
-3. **安装依赖**
-```bash
-pip install -r requirements.txt
-```
-
-4. **配置环境变量**
-```bash
-cp .env.example .env
-# 编辑.env文件，设置开发环境配置
-```
-
-5. **启动数据库**
-```bash
-# 使用Docker启动MySQL
-docker run -d --name pieeg_mysql \
-  -e MYSQL_DATABASE=pieeg_db \
-  -e MYSQL_USER=pieeg_user \
-  -e MYSQL_PASSWORD=pieeg_password \
-  -e MYSQL_ROOT_PASSWORD=root_password \
-  -p 3306:3306 mysql:8.0
-```
-
-6. **初始化数据库**
-```bash
-python init_db.py
-```
-
-7. **启动应用**
-```bash
-export FLASK_APP=src.main
-export FLASK_ENV=development
-flask run --host=0.0.0.0 --port=5000
-```
-
-### 数据库管理
-
-#### 创建迁移
-```bash
-flask db init
-flask db migrate -m "Initial migration"
-flask db upgrade
-```
-
-#### 数据库操作
-```bash
-# 备份数据库
-mysqldump -u root -p pieeg_db > backup.sql
-
-# 恢复数据库
-mysql -u root -p pieeg_db < backup.sql
-```
-
-## 配置说明
-
-### 环境变量
-
-| 变量名 | 说明 | 默认值 |
-|--------|------|--------|
-| `FLASK_APP` | Flask应用模块 | `src.main` |
-| `FLASK_ENV` | 运行环境 | `development` |
-| `SECRET_KEY` | 密钥 | `pieeg-dev-key` |
-| `DB_USERNAME` | 数据库用户名 | `root` |
-| `DB_PASSWORD` | 数据库密码 | `password` |
-| `DB_HOST` | 数据库主机 | `localhost` |
-| `DB_PORT` | 数据库端口 | `3306` |
-| `DB_NAME` | 数据库名称 | `pieeg_db` |
-
-### 服务端口
-
-| 服务 | 端口 | 说明 |
-|------|------|------|
-| Web应用 | 5000 | Flask应用端口 |
-| Nginx | 80/443 | HTTP/HTTPS端口 |
-| MySQL | 3306 | 数据库端口 |
-| Redis | 6379 | 缓存端口 |
-
-## 部署到生产环境
-
-### 1. 服务器准备
+### 添加新产品页面
 
 ```bash
-# 更新系统
-sudo apt update && sudo apt upgrade -y
+# 创建新产品页面
+hugo new content/products/new-product.md
 
-# 安装Docker
-curl -fsSL https://get.docker.com -o get-docker.sh
-sudo sh get-docker.sh
-
-# 安装Docker Compose
-sudo curl -L "https://github.com/docker/compose/releases/download/v2.20.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
+# 编辑产品信息
 ```
 
-### 2. 域名和SSL配置
+产品页面示例：
 
-#### 域名解析
+```yaml
+---
+title: "新产品名称"
+description: "产品描述"
+image: "images/new-product.png"
+price: "¥999"
+features:
+  - "特性1"
+  - "特性2"
+specifications:
+  - "规格1"
+  - "规格2"
+draft: false
+---
+
+产品的详细描述内容...
+```
+
+## 🎨 样式定制
+
+### 主样式文件 (static/css/style.css)
+
+```css
+/* CSS变量系统 */
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+  --accent-color: #e74c3c;
+  --background-color: #ffffff;
+  --text-color: #2c3e50;
+  --border-color: #ecf0f1;
+  --header-height: 80px;
+}
+
+/* 自定义主题色 */
+.theme-blue {
+  --primary-color: #3498db;
+  --secondary-color: #2980b9;
+}
+
+.theme-green {
+  --primary-color: #27ae60;
+  --secondary-color: #229954;
+}
+```
+
+### 修改颜色主题
+
+1. 编辑 `static/css/style.css` 中的 CSS 变量
+2. 或在 `hugo.toml` 中添加自定义参数：
+
+```toml
+[params.theme]
+  primary_color = "#3498db"
+  secondary_color = "#2980b9"
+  accent_color = "#e74c3c"
+```
+
+## 📊 数据可视化配置
+
+### 图表配置 (static/js/charts.js)
+
+```javascript
+// 全局图表配置
+const CHART_CONFIG = {
+  displayModeBar: false,
+  responsive: true,
+  displaylogo: false,
+  modeBarButtonsToRemove: ['pan2d', 'lasso2d', 'select2d']
+};
+
+// 默认布局配置
+const DEFAULT_LAYOUT = {
+  showlegend: false,
+  margin: { l: 40, r: 40, t: 40, b: 40 },
+  font: { family: 'Arial, sans-serif', size: 12 },
+  plot_bgcolor: 'rgba(0,0,0,0)',
+  paper_bgcolor: 'rgba(0,0,0,0)'
+};
+```
+
+### EEG数据格式 (static/data/sample_eeg_data.json)
+
+```json
+{
+  "eeg": {
+    "channels": ["Fp1", "Fp2", "F3", "F4", "C3", "C4", "P3", "P4"],
+    "sampling_rate": 250,
+    "data": [[...], [...], ...],
+    "timestamps": [0, 0.004, 0.008, ...]
+  },
+  "emg": {
+    "channels": ["EMG1", "EMG2"],
+    "sampling_rate": 1000,
+    "data": [[...], [...]],
+    "timestamps": [0, 0.001, 0.002, ...]
+  }
+}
+```
+
+## 🚀 部署选项
+
+### 1. GitHub Pages 自动部署
+
+创建 `.github/workflows/hugo.yml`：
+
+```yaml
+name: Deploy Hugo to GitHub Pages
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.147.8'
+          extended: true
+          
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v4
+        
+      - name: Build with Hugo
+        env:
+          HUGO_ENVIRONMENT: production
+          HUGO_ENV: production
+        run: |
+          hugo \
+            --minify \
+            --baseURL "${{ steps.pages.outputs.base_url }}/"
+            
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: ./public
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v3
+```
+
+### 2. Netlify 部署
+
+1. **通过Git连接**：
+   - 登录 Netlify
+   - 选择 "New site from Git"
+   - 连接 GitHub 仓库
+
+2. **构建设置**：
+   ```
+   Build command: hugo --minify
+   Publish directory: public
+   Environment variables:
+     HUGO_VERSION: 0.147.8
+     HUGO_ENV: production
+   ```
+
+3. **自定义域名**（可选）：
+   ```
+   Domain management → Add custom domain
+   ```
+
+### 3. Vercel 部署
+
+创建 `vercel.json`：
+
+```json
+{
+  "build": {
+    "env": {
+      "HUGO_VERSION": "0.147.8"
+    }
+  },
+  "functions": {
+    "app/api/**/*.go": {
+      "runtime": "vercel-go"
+    }
+  }
+}
+```
+
+### 4. 云服务器部署
+
+#### 4.1 服务器环境准备
+
 ```bash
-# 添加A记录指向服务器IP
-pieeg.cn        A    your.server.ip
-www.pieeg.cn    A    your.server.ip
+# 安装 Hugo
+wget https://github.com/gohugoio/hugo/releases/download/v0.147.8/hugo_extended_0.147.8_Linux-64bit.tar.gz
+tar -xzf hugo_extended_0.147.8_Linux-64bit.tar.gz
+sudo mv hugo /usr/local/bin/
+
+# 安装 Nginx
+sudo apt update
+sudo apt install nginx
+
+# 配置防火墙
+sudo ufw allow 'Nginx Full'
 ```
 
-#### SSL证书（Let's Encrypt）
+#### 4.2 自动部署脚本
+
+创建 `deploy.sh`：
+
 ```bash
-# 安装certbot
-sudo apt install certbot
+#!/bin/bash
 
-# 申请证书
-sudo certbot certonly --standalone -d pieeg.cn -d www.pieeg.cn
+# 部署脚本
+SITE_DIR="/var/www/pieeg"
+BACKUP_DIR="/var/backups/pieeg"
+LOG_FILE="/var/log/pieeg-deploy.log"
 
-# 复制证书到项目目录
-sudo cp /etc/letsencrypt/live/pieeg.cn/fullchain.pem ssl/pieeg.cn.pem
-sudo cp /etc/letsencrypt/live/pieeg.cn/privkey.pem ssl/pieeg.cn.key
+echo "$(date): Starting deployment" >> $LOG_FILE
+
+# 备份当前版本
+if [ -d "$SITE_DIR" ]; then
+    sudo cp -r $SITE_DIR $BACKUP_DIR/$(date +%Y%m%d-%H%M%S)
+fi
+
+# 构建网站
+hugo --minify --destination $SITE_DIR
+
+# 设置权限
+sudo chown -R www-data:www-data $SITE_DIR
+sudo chmod -R 755 $SITE_DIR
+
+# 重启 Nginx
+sudo systemctl reload nginx
+
+echo "$(date): Deployment completed" >> $LOG_FILE
 ```
 
-#### 启用HTTPS
-编辑 `nginx.conf`，取消HTTPS配置注释，然后重启服务：
+#### 4.3 Nginx 配置
+
+创建 `/etc/nginx/sites-available/pieeg`：
+
+```nginx
+server {
+    listen 80;
+    listen [::]:80;
+    server_name pieeg.cn www.pieeg.cn;
+
+    root /var/www/pieeg;
+    index index.html;
+
+    # 启用压缩
+    gzip on;
+    gzip_vary on;
+    gzip_min_length 1024;
+    gzip_types text/plain text/css text/xml text/javascript application/javascript application/xml+rss application/json;
+
+    # 缓存静态资源
+    location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+    }
+
+    # 主要位置块
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    # 安全头
+    add_header X-Frame-Options "SAMEORIGIN" always;
+    add_header X-XSS-Protection "1; mode=block" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header Referrer-Policy "no-referrer-when-downgrade" always;
+    add_header Content-Security-Policy "default-src 'self' http: https: data: blob: 'unsafe-inline'" always;
+}
+```
+
+启用站点：
+
 ```bash
-docker-compose restart nginx
+sudo ln -s /etc/nginx/sites-available/pieeg /etc/nginx/sites-enabled/
+sudo nginx -t
+sudo systemctl reload nginx
 ```
 
-### 3. 生产环境优化
+## 🛠️ 开发工具和命令
 
-#### 性能优化
-- 启用Nginx gzip压缩
-- 配置静态文件缓存
-- 使用CDN加速静态资源
-- 优化数据库查询
+### 常用 Hugo 命令
 
-#### 安全加固
-- 更改默认密码
-- 限制管理员IP访问
-- 启用防火墙
-- 定期备份数据
-
-#### 监控和日志
 ```bash
-# 查看服务状态
-docker-compose ps
+# 开发服务器
+hugo server --buildDrafts --bind 0.0.0.0 --port 1313
 
-# 实时日志
-docker-compose logs -f
+# 构建网站
+hugo --minify
 
-# 系统资源监控
-docker stats
+# 检查配置
+hugo config
 
-# 磁盘使用情况
-df -h
+# 清理缓存和构建目录
+hugo --cleanDestinationDir
+
+# 分析模板性能
+hugo --templateMetrics
+
+# 创建新内容
+hugo new content/posts/my-post.md
+
+# 列出所有内容
+hugo list all
+
+# 检查链接
+hugo --printPathWarnings
 ```
 
-## 故障排除
+### 推荐的 VS Code 扩展
 
-### 常见问题
+```json
+{
+  "recommendations": [
+    "budparr.language-hugo-vscode",
+    "eliostruyf.vscode-front-matter",
+    "redhat.vscode-yaml",
+    "yzhang.markdown-all-in-one",
+    "ms-vscode.vscode-json"
+  ]
+}
+```
 
-#### 1. 数据库连接失败
+### 开发工作流
+
 ```bash
-# 检查数据库服务
-docker-compose ps db
+# 1. 创建新分支
+git checkout -b feature/new-feature
 
-# 查看数据库日志
-docker-compose logs db
+# 2. 启动开发服务器
+hugo server --buildDrafts
 
-# 测试数据库连接
-docker-compose exec web python -c "
-from src.main import create_app
-app = create_app()
-with app.app_context():
-    from src.models.admin import db
-    print('Database connection:', db.engine.execute('SELECT 1').scalar())
-"
+# 3. 进行开发和测试
+
+# 4. 构建并测试
+hugo --minify
+
+# 5. 提交更改
+git add .
+git commit -m "Add new feature"
+
+# 6. 推送和创建PR
+git push origin feature/new-feature
 ```
 
-#### 2. 静态文件404
+## 📈 性能优化
+
+### 已实现的优化
+
+- **资源压缩**：HTML、CSS、JS 自动压缩
+- **图片优化**：WebP 格式支持，懒加载
+- **缓存策略**：静态资源长期缓存
+- **CDN 加速**：Plotly.js 通过 CDN 加载
+- **语义化 HTML**：更好的 SEO 和可访问性
+
+### 高级优化配置
+
+```toml
+# hugo.toml 中添加
+[caches]
+  [caches.getjson]
+    dir = ":cacheDir/:project"
+    maxAge = "1h"
+  [caches.getcsv]
+    dir = ":cacheDir/:project"
+    maxAge = "1h"
+  [caches.images]
+    dir = ":cacheDir/:project"
+    maxAge = "24h"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  page = ["HTML"]
+  section = ["HTML", "RSS"]
+
+[mediaTypes]
+  [mediaTypes."application/manifest+json"]
+    suffixes = ["webmanifest"]
+  [mediaTypes."text/netlify"]
+    delimiter = ""
+    suffixes = [""]
+
+[outputFormats]
+  [outputFormats.WebAppManifest]
+    mediaType = "application/manifest+json"
+    rel = "manifest"
+```
+
+## 🔧 故障排除
+
+### 常见问题和解决方案
+
+#### 1. Hugo 服务器启动失败
+
 ```bash
-# 检查静态文件目录权限
-ls -la src/static/
+# 检查端口占用
+lsof -i :1313
 
-# 重启Nginx
-docker-compose restart nginx
+# 使用不同端口
+hugo server --port 1314
 
-# 检查Nginx配置
-docker-compose exec nginx nginx -t
+# 检查配置文件语法
+hugo config
 ```
 
-#### 3. 应用启动失败
+#### 2. 构建错误
+
 ```bash
-# 查看应用日志
-docker-compose logs web
+# 启用详细错误信息
+hugo --verbose --debug
 
-# 进入容器调试
-docker-compose exec web bash
-
-# 检查Python环境
-docker-compose exec web python --version
-docker-compose exec web pip list
+# 检查模板语法
+hugo server --templateMetrics
 ```
 
-### 日志位置
+#### 3. 图片不显示
 
-- **应用日志**: `logs/` 目录
-- **Nginx日志**: 容器内 `/var/log/nginx/`
-- **MySQL日志**: 容器内 `/var/log/mysql/`
-- **Docker日志**: `docker-compose logs`
+```bash
+# 检查图片路径
+ls static/images/
 
-## API文档
-
-### 论坛API
-
-#### 获取分类列表
-```
-GET /api/categories
+# 重新构建
+hugo --cleanDestinationDir
 ```
 
-#### 获取分类话题
-```
-GET /api/category/<category_id>/topics
-```
+#### 4. CSS/JS 更改不生效
 
-#### 获取话题详情
-```
-GET /api/topic/<topic_id>
-```
+```bash
+# 清理浏览器缓存
+# 或强制刷新 Ctrl+F5
 
-### 产品API
-
-#### 获取产品列表
-```
-GET /api/products
+# 清理 Hugo 缓存
+hugo --cleanDestinationDir
 ```
 
-#### 获取产品详情
+### 调试技巧
+
+```bash
+# 查看站点变量
+{{ printf "%#v" .Site }}
+
+# 查看页面变量
+{{ printf "%#v" .Page }}
+
+# 调试数据文件
+{{ printf "%#v" .Site.Data }}
 ```
-GET /api/products/<slug>
+
+## 📚 文档和资源
+
+### 官方文档
+
+- [Hugo 官方文档](https://gohugo.io/documentation/)
+- [Hugo 模板语法](https://gohugo.io/templates/)
+- [Hugo 主题开发](https://gohugo.io/themes/)
+
+### 相关资源
+
+- [Plotly.js 文档](https://plotly.com/javascript/)
+- [YAML 语法参考](https://yaml.org/spec/）
+- [Markdown 语法指南](https://www.markdownguide.org/)
+
+### 项目文档
+
+项目相关的历史文档和开发记录保存在 `docs/` 目录：
+
+- `PYTHON_PROJECT_HISTORY.md` - Python 项目历史
+- `DEPLOYMENT_SUMMARY.md` - 部署总结
+- `PROJECT_CLEANUP_SUMMARY.md` - 项目整理记录
+- `ANALYTICS_SETUP.md` - 分析工具配置
+
+## 🤝 贡献指南
+
+### 开发规范
+
+1. **分支命名**：`feature/功能名` 或 `fix/问题描述`
+2. **提交信息**：使用清晰的中文描述
+3. **代码风格**：遵循项目既有风格
+4. **测试要求**：确保构建成功和功能正常
+
+### 提交流程
+
+```bash
+# 1. Fork 项目
+# 2. 创建功能分支
+git checkout -b feature/new-feature
+
+# 3. 进行开发
+# 4. 测试功能
+hugo server
+
+# 5. 提交更改
+git add .
+git commit -m "添加新功能：描述"
+
+# 6. 推送到 Fork
+git push origin feature/new-feature
+
+# 7. 创建 Pull Request
 ```
 
-## 贡献指南
+## 📄 许可证
 
-1. Fork 本仓库
-2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 打开 Pull Request
+本项目采用 MIT 许可证。详见 LICENSE 文件。
 
-## 许可证
+## 📞 技术支持
 
-本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情
+如有问题或建议，请通过以下方式联系：
 
-## 联系方式
+- 📧 邮箱：info@pieeg.cn
+- 🐛 问题反馈：GitHub Issues
+- 💬 技术讨论：GitHub Discussions
 
-- 官网：https://pieeg.cn
-- 邮箱：info@pieeg.cn
-- 技术支持：support@pieeg.cn
+---
 
-## 更新日志
-
-### v1.0.0 (2024-01-01)
-- 初始版本发布
-- 完整的产品展示系统
-- 社区论坛功能
-- 管理后台
-- 容器化部署支持
+**最后更新**：2024年6月22日  
+**Hugo 版本**：0.147.8  
+**项目版本**：2.0.0 
