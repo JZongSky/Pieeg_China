@@ -25,6 +25,18 @@ defaultContentLanguage = 'zh-cn'
     enabled = false
     number = "京公网安备 11010502012345号"  # 请替换为实际的公安备案号
     url = "http://www.beian.gov.cn/"
+    
+  # 网站分析配置
+  [params.analytics]
+    # 百度统计
+    [params.analytics.baidu]
+      enabled = true
+      site_id = "your_baidu_site_id_here"  # 请替换为您的百度统计站点ID
+    
+    # Google Analytics（可选）
+    [params.analytics.google]
+      enabled = false
+      tracking_id = ""  # 如需使用请填入GA跟踪ID
 
 [menu]
   [[menu.main]]

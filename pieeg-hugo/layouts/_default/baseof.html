@@ -12,6 +12,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    
+    {{- if and .Site.Params.analytics.baidu.enabled .Site.Params.analytics.baidu.site_id }}
+    <!-- 百度统计 -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?{{ .Site.Params.analytics.baidu.site_id }}";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    {{- end }}
 </head>
 <body>
     <!-- 导航栏 -->
@@ -54,17 +67,17 @@
                         <li><a href="{{ "products/pieeg-16/" | relURL }}">PiEEG-16</a></li>
                         <li><a href="{{ "products/ardeeg/" | relURL }}">ardEEG</a></li>
                         <li><a href="{{ "products/jneeg/" | relURL }}">JNEEG</a></li>
-                        <li><a href="{{ "products/accessories/" | relURL }}">配件</a></li>
+                        <li><a href="{{ "products/education-kit/" | relURL }}">教育套件</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>资源</h3>
                     <ul class="footer-links">
-                        <li><a href="{{ "docs/technical/" | relURL }}">技术文档</a></li>
-                        <li><a href="https://github.com/pieeg">GitHub代码库</a></li>
-                        <li><a href="{{ "docs/courses/" | relURL }}">信号处理课程</a></li>
-                        <li><a href="{{ "docs/faq/" | relURL }}">常见问题</a></li>
-                        <li><a href="{{ "downloads/" | relURL }}">下载中心</a></li>
+                        <li><a href="https://github.com/pieeg/docs" target="_blank">技术文档</a></li>
+                        <li><a href="https://github.com/pieeg" target="_blank">GitHub代码库</a></li>
+                        <li><a href="https://github.com/pieeg/tutorials" target="_blank">教程资源</a></li>
+                        <li><a href="{{ "disclaimer/" | relURL }}">免责声明</a></li>
+                        <li><a href="{{ "products/" | relURL }}">产品中心</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -105,6 +118,18 @@
 
         });
     </script>
+    
+    {{- if and .Site.Params.analytics.google.enabled .Site.Params.analytics.google.tracking_id }}
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.analytics.google.tracking_id }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '{{ .Site.Params.analytics.google.tracking_id }}');
+    </script>
+    {{- end }}
+    
     {{- block "scripts" . }}{{- end }}
 </body>
 </html> 

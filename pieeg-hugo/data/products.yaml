@@ -1,5 +1,5 @@
 - name: "PiEEG-8"
-  image: "images/pieeg-8.png"
+  image: "images/pieeg8/pieeg8-1.png"
   description: "8通道脑机接口设备，兼容Raspberry Pi，用于测量EEG、EMG和ECG生物信号"
   features:
     - "兼容Raspberry Pi 3, 4和5"
@@ -9,7 +9,7 @@
   link: "/products/pieeg-8/"
 
 - name: "PiEEG-16"
-  image: "images/pieeg-16.png"
+  image: "images/pieeg16/pieeg16-1.png"
   description: "16通道脑机接口设备，兼容Raspberry Pi，用于测量EEG、EMG和ECG生物信号"
   features:
     - "兼容Raspberry Pi 5"
@@ -19,7 +19,7 @@
   link: "/products/pieeg-16/"
 
 - name: "PIEEG教育套件"
-  image: "images/pieeg-education-kit.png"
+  image: "images/pieeg-kit/pieeg-kit-1.png"
   description: "集成式脑电学习套件，包含完整硬件、软件和神经科学学习课程"
   features:
     - "包含PiEEG设备、Raspberry Pi 5和完整配件"
@@ -29,7 +29,7 @@
   link: "/products/education-kit/"
 
 - name: "ardEEG"
-  image: "images/ardeeg.png"
+  image: "images/ardeeg/ardeeg-1.png"
   description: "Arduino扩展板，8通道脑机接口设备，用于测量EEG、EMG和ECG生物信号"
   features:
     - "兼容Arduino UNO R4 WiFi"
@@ -39,7 +39,7 @@
   link: "/products/ardeeg/"
 
 - name: "JNEEG"
-  image: "images/jneeg.png"
+  image: "images/jneeg/jneeg-1.png"
   description: "Jetson Nano扩展板，8通道脑机接口设备，专为深度学习应用设计"
   features:
     - "兼容Jetson Nano"

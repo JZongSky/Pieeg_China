@@ -19,7 +19,7 @@ const CHART_COLORS = {
 // 加载数据
 async function loadEEGData() {
   try {
-    const response = await fetch('/static/data/sample_eeg_data.json');
+    const response = await fetch('/data/sample_eeg_data.json');
     return await response.json();
   } catch (error) {
     console.error('加载EEG数据失败:', error);
@@ -73,14 +73,15 @@ function createEEGWaveformChart(containerId, channelName = 'Fp1') {
         b: 50
       },
       hovermode: 'closest',
-      showlegend: true
+      showlegend: false
     };
     
     const config = {
       responsive: true,
-      displayModeBar: true,
-      modeBarButtonsToRemove: ['lasso2d', 'select2d'],
-      displaylogo: false
+      displayModeBar: false,
+      staticPlot: false,
+      displaylogo: false,
+      autosizable: true
     };
     
     Plotly.newPlot(containerId, [trace], layout, config);
@@ -139,14 +140,15 @@ function createMultiChannelEEGChart(containerId, channels = ['Fp1', 'Fp2', 'F3',
         b: 50
       },
       hovermode: 'closest',
-      showlegend: true
+      showlegend: false
     };
     
     const config = {
       responsive: true,
-      displayModeBar: true,
-      modeBarButtonsToRemove: ['lasso2d', 'select2d'],
-      displaylogo: false
+      displayModeBar: false,
+      staticPlot: false,
+      displaylogo: false,
+      autosizable: true
     };
     
     Plotly.newPlot(containerId, traces, layout, config);
@@ -237,14 +239,15 @@ function createSpectralAnalysisChart(containerId, channelName = 'O1') {
         b: 50
       },
       hovermode: 'closest',
-      showlegend: true
+      showlegend: false
     };
     
     const config = {
       responsive: true,
-      displayModeBar: true,
-      modeBarButtonsToRemove: ['lasso2d', 'select2d'],
-      displaylogo: false
+      displayModeBar: false,
+      staticPlot: false,
+      displaylogo: false,
+      autosizable: true
     };
     
     Plotly.newPlot(containerId, [trace, ...bandTraces], layout, config);
@@ -302,7 +305,7 @@ function createProductComparisonChart(containerId) {
           range: [0, 1]
         }
       },
-      showlegend: true,
+      showlegend: false,
       margin: {
         l: 50,
         r: 50,
@@ -315,7 +318,9 @@ function createProductComparisonChart(containerId) {
     const config = {
       responsive: true,
       displayModeBar: false,
-      displaylogo: false
+      staticPlot: false,
+      displaylogo: false,
+      autosizable: true
     };
     
     Plotly.newPlot(containerId, traces, layout, config);
@@ -366,14 +371,15 @@ function createEMGWaveformChart(containerId) {
         b: 50
       },
       hovermode: 'closest',
-      showlegend: true
+      showlegend: false
     };
     
     const config = {
       responsive: true,
-      displayModeBar: true,
-      modeBarButtonsToRemove: ['lasso2d', 'select2d'],
-      displaylogo: false
+      displayModeBar: false,
+      staticPlot: false,
+      displaylogo: false,
+      autosizable: true
     };
     
     Plotly.newPlot(containerId, [trace], layout, config);
@@ -424,14 +430,15 @@ function createECGWaveformChart(containerId) {
         b: 50
       },
       hovermode: 'closest',
-      showlegend: true
+      showlegend: false
     };
     
     const config = {
       responsive: true,
-      displayModeBar: true,
-      modeBarButtonsToRemove: ['lasso2d', 'select2d'],
-      displaylogo: false
+      displayModeBar: false,
+      staticPlot: false,
+      displaylogo: false,
+      autosizable: true
     };
     
     Plotly.newPlot(containerId, [trace], layout, config);
@@ -580,8 +587,10 @@ function create3DBrainTopoMap(containerId) {
     
     const config = {
       responsive: true,
-      displayModeBar: true,
-      displaylogo: false
+      displayModeBar: false,
+      staticPlot: false,
+      displaylogo: false,
+      autosizable: true
     };
     
     Plotly.newPlot(containerId, [surfaceTrace, electrodeTrace], layout, config);
@@ -664,10 +673,23 @@ function createFrequencyBandBarChart(containerId, channelName = 'O1') {
     const config = {
       responsive: true,
       displayModeBar: false,
-      displaylogo: false
+      staticPlot: false,
+      displaylogo: false,
+      autosizable: true
     };
     
     Plotly.newPlot(containerId, [trace], layout, config);
+  });
+}
+
+// 窗口调整大小时重新调整图表
+function resizeCharts() {
+  const chartContainers = document.querySelectorAll('.chart-container');
+  chartContainers.forEach(container => {
+    const plotlyDiv = container.querySelector('.js-plotly-plot');
+    if (plotlyDiv) {
+      Plotly.Plots.resize(plotlyDiv);
+    }
   });
 }
 
@@ -712,6 +734,9 @@ function initializeAllCharts() {
 
 // 页面加载完成后初始化图表
 document.addEventListener('DOMContentLoaded', initializeAllCharts);
+
+// 窗口调整大小时重新调整图表
+window.addEventListener('resize', resizeCharts);
 
 // 导出函数供外部使用
 window.PIEEG = {

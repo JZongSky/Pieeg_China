@@ -1,265 +1,53 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PIEEG - 低成本脑机接口设备</title><link>/</link><description>Recent content on PIEEG - 低成本脑机接口设备</description><generator>Hugo</generator><language>zh-CN</language><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>PiEEG-8 - 8通道脑机接口设备</title><link>/products/pieeg-8/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/products/pieeg-8/</guid><description>&lt;h1 id="pieeg-8---8通道脑机接口设备">PiEEG-8 - 8通道脑机接口设备&lt;/h1>
-&lt;h2 id="基础信息">基础信息&lt;/h2>
-&lt;p>PiEEG（在树莓派上测量脑电）是一款开源的树莓派扩展板，可用于测量脑电（EEG）、肌电（EMG）和心电（ECG）等生物信号。PiEEG 兼容性强、使用简单，并支持多种类型的电极。最重要的是，它的设计宗旨是让任何人都能轻松上手。只需连接电极并运行一段 Python 脚本，即可开始进行生物信号的采集与分析。应用领域包括游戏、娱乐、运动、健康、冥想等多个方面。&lt;/p>
-&lt;p>⚠️ &lt;strong>重要提示&lt;/strong>: PIEEG 不是医疗器械，未获得任何政府监管机构关于人体使用的认证。购买和使用完全由用户自行承担风险，请务必阅读&lt;a href="/disclaimer/">《免责声明》&lt;/a>。&lt;/p>
-&lt;h2 id="产品特性及参数">产品特性及参数&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>兼容性&lt;/strong>: 支持树莓派 3、4 和 5&lt;/li>
-&lt;li>&lt;strong>通道数&lt;/strong>: 8 个通道，支持湿电极和干电极连接&lt;/li>
-&lt;li>&lt;strong>数据传输&lt;/strong>: 通过 SPI 协议传输数据，采样频率从 250 SPS 至 16 kSPS，24 位分辨率&lt;/li>
-&lt;li>&lt;strong>信号增益&lt;/strong>: 可编程信号增益：1、2、4、6、8、12、24&lt;/li>
-&lt;li>&lt;strong>阻抗测量&lt;/strong>: 支持阻抗测量功能&lt;/li>
-&lt;li>&lt;strong>扩展性&lt;/strong>: 提供 3 个空闲引脚，可连接外部设备（接地与树莓派通道）&lt;/li>
-&lt;li>&lt;strong>软件支持&lt;/strong>: 配套开源软件，支持 Python 编程读取与处理数据&lt;/li>
-&lt;li>&lt;strong>开源&lt;/strong>: 所有技术细节、SDK 和软件资源已发布于 GitHub 和 YouTube&lt;/li>
-&lt;/ul>
-&lt;h2 id="为什么选择pieeg-8">为什么选择PiEEG-8&lt;/h2>
-&lt;p>树莓派是全球最受欢迎的单板计算机之一，以其稳定性和易用性著称。将 PiEEG 与树莓派结合使用，为探索神经科学提供了一种便捷可及的方式。通过该组合，用户可以直接在树莓派上实现 EEG 数据的实时采集与处理，无需将数据传输到其他计算设备，也无需额外资源进行特征提取与信号处理。&lt;/p>
-&lt;p>PiEEG 不仅是学习生物科学的绝佳工具，也具备多种实际应用潜力，如脑控机械手操作、压力管理、冥想训练等。&lt;/p>
-&lt;p>我们为 PiEEG 用户提供完整的软件套件、详细的技术文档和丰富的使用支持。&lt;/p>
-&lt;h2 id="潜在应用场景">潜在应用场景&lt;/h2>
-&lt;h3 id="学术研究">学术研究&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://link.springer.com/chapter/10.1007/978-3-031-35599-8_15">基于深度神经网络的树莓派实时脑电情绪识别方法&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.mdpi.com/1424-8220/21/8/2779">单通道脑电创伤性脑损伤检测系统（基于树莓派）&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="实际应用">实际应用&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://www.researchgate.net/publication/355083788_EEG-based_Brain_Computer_Interface_Prosthetic_Hand_using_Raspberry_Pi_4">树莓派 4 脑电接口控制的假肢手系统&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://ieeexplore.ieee.org/abstract/document/8535959">面向家庭应用的可穿戴脑电实时测量与分析平台&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="支持文件及软件">支持文件及软件&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>GitHub仓库&lt;/strong>: &lt;a href="https://github.com/pieeg-club/PiEEG">https://github.com/pieeg-club/PiEEG&lt;/a>&lt;/li>
-&lt;li>&lt;strong>技术文档&lt;/strong>: &lt;a href="https://pieeg.cn/docs/docs/pieeg/">https://pieeg.cn/docs/docs/pieeg/&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="技术规格">技术规格&lt;/h2>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>规格项&lt;/th>
- &lt;th>参数&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>兼容平台&lt;/td>
- &lt;td>树莓派 3, 4, 5&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>通道数&lt;/td>
- &lt;td>8通道&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>电极类型&lt;/td>
- &lt;td>湿电极/干电极&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>分辨率&lt;/td>
- &lt;td>24位&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>采样频率&lt;/td>
- &lt;td>250 SPS - 16 kSPS&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>信号增益&lt;/td>
- &lt;td>1, 2, 4, 6, 8, 12, 24&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>通信协议&lt;/td>
- &lt;td>SPI&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>扩展引脚&lt;/td>
- &lt;td>3个空闲引脚&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table></description></item><item><title>PIEEG教育套件 - 集成式脑电学习套件</title><link>/products/education-kit/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/products/education-kit/</guid><description>&lt;h1 id="pieeg教育套件---集成式脑电学习套件">PIEEG教育套件 - 集成式脑电学习套件&lt;/h1>
-&lt;h2 id="基础信息">基础信息&lt;/h2>
-&lt;p>PiEEG 教育套件是一款集成式脑电/生物电信号采集套件，可舒适、便捷地用于学习和探索来自大脑和身体的多种信号，包括脑电（EEG）、心电（EKG）、肌电（EMG）和眼电（EOG）。&lt;/p>
-&lt;p>无论您是科研人员、在校学生，还是对科技充满热情的爱好者，PiEEG 都是一款理想工具。它适用于生物科学研究、信号处理、机器学习等领域的学习、原型验证和实验，支持基于实时数据的开发。&lt;/p>
-&lt;p>同时，它也是送给学生或任何热爱自我探索与成长人士的绝佳礼物。&lt;/p>
-&lt;p>⚠️ &lt;strong>重要提示&lt;/strong>: PIEEG 不是医疗器械，未获得任何政府监管机构关于人体使用的认证。购买和使用完全由用户自行承担风险，请务必阅读&lt;a href="/disclaimer/">《免责声明》&lt;/a>。&lt;/p>
-&lt;h2 id="产品特性及参数">产品特性及参数&lt;/h2>
-&lt;h3 id="套件包含内容">套件包含内容&lt;/h3>
-&lt;ul>
-&lt;li>&lt;strong>1 个 PiEEG 主设备&lt;/strong>（含外壳、显示屏、连接器、传感器板等）&lt;/li>
-&lt;li>&lt;strong>1 台预装软件的 Raspberry Pi 5&lt;/strong>（含 SD 卡）&lt;/li>
-&lt;li>&lt;strong>1 个 EEG 脑电帽&lt;/strong>&lt;/li>
-&lt;li>&lt;strong>8 个脑电电极及连接线&lt;/strong>&lt;/li>
-&lt;li>&lt;strong>2 个夹式电极&lt;/strong>&lt;/li>
-&lt;li>&lt;strong>10 片适用于肌电/心电/眼电（EMG/EKG/EOG）的贴片电极&lt;/strong>&lt;/li>
-&lt;li>&lt;strong>1 套神经科学学习课程&lt;/strong>&lt;/li>
-&lt;/ul>
-&lt;h3 id="技术规格">技术规格&lt;/h3>
-&lt;ul>
-&lt;li>&lt;strong>兼容平台&lt;/strong>: Raspberry Pi 5&lt;/li>
-&lt;li>&lt;strong>通道数&lt;/strong>: 8通道&lt;/li>
-&lt;li>&lt;strong>电极类型&lt;/strong>: 湿电极/干电极&lt;/li>
-&lt;li>&lt;strong>分辨率&lt;/strong>: 24位&lt;/li>
-&lt;li>&lt;strong>采样频率&lt;/strong>: 250 SPS - 16 kSPS&lt;/li>
-&lt;li>&lt;strong>信号增益&lt;/strong>: 1, 2, 4, 6, 8, 12, 24&lt;/li>
-&lt;li>&lt;strong>通信协议&lt;/strong>: SPI&lt;/li>
-&lt;li>&lt;strong>信号类型&lt;/strong>: EEG、ECG、EMG、EOG&lt;/li>
-&lt;/ul>
-&lt;h2 id="为什么选择pieeg教育套件">为什么选择PIEEG教育套件&lt;/h2>
-&lt;h3 id="一体化设计">一体化设计&lt;/h3>
-&lt;p>PIEEG教育套件是一体化设计，无需为软件、电极、电缆等配件操心。一台设备，即可完成脑电（EEG）信号采集与特征提取，支持全流程的实时处理。&lt;/p></description></item><item><title>PiEEG-16 - 16通道脑机接口设备</title><link>/products/pieeg-16/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/products/pieeg-16/</guid><description>&lt;h1 id="pieeg-16---16通道脑机接口设备">PiEEG-16 - 16通道脑机接口设备&lt;/h1>
-&lt;h2 id="基础信息">基础信息&lt;/h2>
-&lt;p>PiEEG-16（在树莓派上测量脑电）是一款开源的树莓派扩展板，可用于测量脑电（EEG）、肌电（EMG）和心电（ECG）等生物信号。PiEEG-16 兼容性强、使用简单，并支持多种类型的电极。最重要的是，它的设计宗旨是让任何人都能轻松上手。只需连接电极并运行一段 Python 脚本，即可开始进行生物信号的采集与分析。应用领域包括游戏、娱乐、运动、健康、冥想等多个方面。&lt;/p>
-&lt;p>⚠️ &lt;strong>重要提示&lt;/strong>: PIEEG 不是医疗器械，未获得任何政府监管机构关于人体使用的认证。购买和使用完全由用户自行承担风险，请务必阅读&lt;a href="/disclaimer/">《免责声明》&lt;/a>。&lt;/p>
-&lt;h2 id="产品特性及参数">产品特性及参数&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>兼容性&lt;/strong>: 兼容树莓派 5&lt;/li>
-&lt;li>&lt;strong>通道数&lt;/strong>: 支持 16 个通道，可连接湿电极或干电极&lt;/li>
-&lt;li>&lt;strong>数据传输&lt;/strong>: 采用 SPI 协议进行数据传输，采样频率范围为 250 SPS 至 16 kSPS，每通道分辨率为 24 位&lt;/li>
-&lt;li>&lt;strong>信号增益&lt;/strong>: 可编程信号增益：1、2、4、6、8、12、24 倍&lt;/li>
-&lt;li>&lt;strong>阻抗测量&lt;/strong>: 支持阻抗测量功能&lt;/li>
-&lt;li>&lt;strong>软件支持&lt;/strong>: 配套开源软件，支持通过 Python 编程读取与处理生物信号数据，开发简单便捷&lt;/li>
-&lt;/ul>
-&lt;h2 id="为什么选择pieeg-16">为什么选择PiEEG-16&lt;/h2>
-&lt;p>PiEEG-16 支持 16 通道脑电信号采集，使其能够应用于更具挑战性和复杂度的科研或开发项目中，探索更多有趣的可能性。&lt;/p>
-&lt;p>树莓派是全球最受欢迎的单板计算机之一，以其高可靠性和用户友好性广受赞誉。将 PiEEG 与树莓派结合使用，为进入神经科学领域提供了极具亲和力的入门路径。这种组合可直接在树莓派上完成脑电数据的采集与实时信号处理，无需将数据传输到其他设备，也无需额外的计算资源进行特征提取与信号分析。&lt;/p>
-&lt;p>PiEEG 不仅是学习生物信号处理与脑科学的理想工具，也具备广泛的实际应用潜力，例如脑控机械手、情绪识别、压力管理、冥想训练等。&lt;/p>
-&lt;p>我们为 PiEEG 用户提供完整的软件包、详细的技术文档和完善的用户支持，助力开发者与爱好者更高效地开展研究与项目开发。&lt;/p>
-&lt;h2 id="支持文件及软件">支持文件及软件&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>GitHub仓库&lt;/strong>: &lt;a href="https://github.com/pieeg-club/PiEEG">https://github.com/pieeg-club/PiEEG&lt;/a>&lt;/li>
-&lt;li>&lt;strong>技术文档&lt;/strong>: &lt;a href="https://pieeg.cn/docs/docs/pieeg-16/">https://pieeg.cn/docs/docs/pieeg-16/&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h2 id="技术规格">技术规格&lt;/h2>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>规格项&lt;/th>
- &lt;th>参数&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>兼容平台&lt;/td>
- &lt;td>树莓派 5&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>通道数&lt;/td>
- &lt;td>16通道&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>电极类型&lt;/td>
- &lt;td>湿电极/干电极&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>分辨率&lt;/td>
- &lt;td>24位&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>采样频率&lt;/td>
- &lt;td>250 SPS - 16 kSPS&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>信号增益&lt;/td>
- &lt;td>1, 2, 4, 6, 8, 12, 24&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>通信协议&lt;/td>
- &lt;td>SPI&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h2 id="应用优势">应用优势&lt;/h2>
-&lt;h3 id="高通道密度">高通道密度&lt;/h3>
-&lt;p>16个通道提供更丰富的脑电信号采集能力，适合：&lt;/p></description></item><item><title>ardEEG - Arduino脑机接口扩展板</title><link>/products/ardeeg/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/products/ardeeg/</guid><description>&lt;h1 id="ardeeg---arduino脑机接口扩展板">ardEEG - Arduino脑机接口扩展板&lt;/h1>
-&lt;h2 id="基础信息">基础信息&lt;/h2>
-&lt;p>ardEEG – 使用 Arduino 实现 EEG 信号采集。&lt;/p>
-&lt;p>通过这款专为 Arduino 设计的扩展板，您可以采集 EEG、EMG 和 ECG 等生物电信号，支持多达 8 个 EEG 通道。&lt;/p>
-&lt;p>⚠️ &lt;strong>重要提示&lt;/strong>: ardEEG 不是医疗器械，未获得任何政府监管机构关于人体使用的认证。购买和使用完全由用户自行承担风险，请务必阅读&lt;a href="/disclaimer/">《免责声明》&lt;/a>。&lt;/p>
-&lt;h2 id="产品特性及参数">产品特性及参数&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>兼容性&lt;/strong>: 兼容 Arduino UNO R4 WiFi&lt;/li>
-&lt;li>&lt;strong>通道数&lt;/strong>: 支持 8 个通道，可连接湿电极或干电极&lt;/li>
-&lt;li>&lt;strong>数据传输&lt;/strong>: 采用 SPI 协议进行数据传输，采样频率范围为 250 SPS 到 16 kSPS，每通道分辨率 24 位&lt;/li>
-&lt;li>&lt;strong>信号增益&lt;/strong>: 可编程信号增益：1、2、4、6、8、12、24 倍&lt;/li>
-&lt;li>&lt;strong>阻抗测量&lt;/strong>: 支持阻抗测量功能&lt;/li>
-&lt;li>&lt;strong>软件支持&lt;/strong>: 提供开源软件，支持使用 Python 进行数据读取与处理&lt;/li>
-&lt;li>&lt;strong>开源&lt;/strong>: 所有技术细节详见 GitHub 与 YouTube&lt;/li>
-&lt;/ul>
-&lt;h2 id="为什么选择ardeeg">为什么选择ardEEG&lt;/h2>
-&lt;p>如果你熟悉 Arduino 在电子学习中的作用，那么 ardEEG 是你从电子入门迈向神经科学的理想工具。&lt;/p>
-&lt;p>Arduino 是全球最受欢迎的微控制器学习平台之一，操作简便、拓展性强。而将 ardEEG 与 Arduino 连接使用，可以轻松跨入生物电信号采集与脑科学研究的领域。其显著优势在于超低功耗、体积小、重量轻，因此非常适合打造可穿戴设备，适用于如脑控机械臂、健康监测等高需求场景。&lt;/p></description></item><item><title>JNEEG - Jetson Nano脑机接口扩展板</title><link>/products/jneeg/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/products/jneeg/</guid><description>&lt;h1 id="jneeg---jetson-nano脑机接口扩展板">JNEEG - Jetson Nano脑机接口扩展板&lt;/h1>
-&lt;h2 id="基础信息">基础信息&lt;/h2>
-&lt;p>通过 JNEEG 脑机接口（低成本 EEG 设备）为 NVIDIA Jetson Nano 配备扩展板，实现 8 通道 EEG、EMG 及 ECG 生物信号的采集。&lt;/p>
-&lt;p>JNEEG 是专为 Jetson Nano 设计的一款工具，能够测量来自大脑、肌肉及心脏的生物电信号。该设备开源且免费，兼容多种传感器类型。只需连接传感器并运行简单的 Python 程序，即可开始数据采集。广泛适用于游戏、娱乐、运动、健康管理、冥想等多个领域。&lt;/p>
-&lt;p>⚠️ &lt;strong>重要提示&lt;/strong>: JNEEG 不是医疗设备，未获得任何政府监管机构认证用于人体。购买与使用风险由用户自行承担，请务必阅读&lt;a href="/disclaimer/">《免责声明》&lt;/a>。&lt;/p>
-&lt;h2 id="产品特性及参数">产品特性及参数&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>兼容性&lt;/strong>: 兼容 NVIDIA Jetson Nano&lt;/li>
-&lt;li>&lt;strong>通道数&lt;/strong>: 支持 8 个通道，连接湿电极或干电极&lt;/li>
-&lt;li>&lt;strong>数据传输&lt;/strong>: 采用 SPI 协议传输数据，采样频率 250 SPS 至 16 kSPS，24 位分辨率&lt;/li>
-&lt;li>&lt;strong>信号增益&lt;/strong>: 可编程信号增益：1、2、4、6、8、12、24&lt;/li>
-&lt;li>&lt;strong>阻抗测量&lt;/strong>: 支持阻抗测量&lt;/li>
-&lt;li>&lt;strong>软件支持&lt;/strong>: 提供开源软件，支持 Python 编程读取和处理数据&lt;/li>
-&lt;/ul>
-&lt;h2 id="为什么选择jneeg">为什么选择JNEEG&lt;/h2>
-&lt;p>JNEEG 专为结合机器学习和深度学习技术处理 EEG 及其他生物信号的特征提取任务而设计。&lt;/p>
-&lt;p>Jetson Nano 是全球最受尊敬的单板计算机之一，因其出色的实时机器学习能力而广泛应用于计算机视觉和机器人控制等领域。&lt;/p>
-&lt;p>将 JNEEG 与 Jetson Nano 结合使用，开启了借助深度学习深入神经科学研究的新途径。该组合能够在 Jetson Nano 上实现 EEG 数据的无缝实时读取和信号处理，无需额外的数据传输或计算资源进行特征提取，极大提升效率。&lt;/p></description></item><item><title>法律责任声明</title><link>/disclaimer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/disclaimer/</guid><description>&lt;h1 id="法律责任声明">法律责任声明&lt;/h1>
-&lt;p>&lt;strong>适用于：PiEEG系列产品（包括 PiEEG、ardEEG、JNEEG）&lt;/strong>&lt;/p>
-&lt;p>您在购买和使用 PiEEG 设备时完全出于个人自愿，并对设备的使用安全负全责。PiEEG 设备并非医疗器械，未获得任何国家或政府监管机构的医疗认证，不建议用于人体相关操作，请用户自行承担使用风险。&lt;/p>
-&lt;p>PiEEG 设备受以下条款限制。本评估板/开发套件仅限用于工程开发、演示或评估目的，并不适用于面向普通消费者的最终产品。&lt;/p>
-&lt;h2 id="责任限制说明">责任限制说明&lt;/h2>
-&lt;ul>
-&lt;li>
-&lt;p>PiEEG 设备不适用于医疗、临床或诊断用途，以&amp;quot;原样&amp;quot;提供。PiEEG 不对其功能、操作或用途提供任何明示或暗示的担保，包括但不限于针对特定用途的适用性或不侵犯他人权利的隐含担保。&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>所有 PiEEG 设备及其配套设备仅适用于低压直流电源供电（例如 5V 电池），严禁在任何情况下连接市电、电源插座、USB口等电网供电源，无论用途为何。&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>使用本产品的人员必须具备电子工程相关知识，并遵守标准的工程实践。该产品未涵盖终端产品通常具备的设计、营销及生产安全考虑，例如常规的安全与环境保护措施。&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>本评估板/开发套件不适用于欧盟关于电磁兼容性（EMC）、有害物质限制（RoHS）、回收（WEEE）、FCC、CE、UL 等法规，因此可能不符合上述法规的技术要求。&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>PiEEG 明确表示不承担任何直接、间接、连带、偶发或特殊损失，包括但不限于利润损失、业务中断、数据丢失等，即使已被告知可能会发生此类损害。&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>无论基于何种法律理论（包括合同、侵权、严格责任等），PiEEG 对终端用户的赔偿责任总额，在任何情况下不得超过用户为该产品实际支付的总金额。&lt;/p>
-&lt;/li>
-&lt;/ul>
-&lt;h2 id="使用须知">使用须知&lt;/h2>
-&lt;h3 id="设备安全">设备安全&lt;/h3>
-&lt;p>该设备非面向消费者的家用产品。为方便开发人员和专业用户调试使用，其内部电路在正常工作状态下保持暴露。因此，您应了解暴露电路的潜在风险，并熟悉标准防静电操作流程，或自行设计保护外壳。&lt;/p>
-&lt;h3 id="电源要求">电源要求&lt;/h3>
-&lt;p>此外，本设备不具备患者隔离电路，务必确保连接设备始终由 5V 电池供电。&lt;/p>
-&lt;h3 id="专业知识要求">专业知识要求&lt;/h3>
-&lt;p>使用本产品需要具备：&lt;/p>
-&lt;ul>
-&lt;li>电子工程基础知识&lt;/li>
-&lt;li>标准的工程实践经验&lt;/li>
-&lt;li>生物信号处理相关知识&lt;/li>
-&lt;li>安全操作意识&lt;/li>
-&lt;/ul>
-&lt;h3 id="应用限制">应用限制&lt;/h3>
-&lt;p>本产品仅适用于：&lt;/p>
-&lt;ul>
-&lt;li>工程开发和评估&lt;/li>
-&lt;li>学术研究&lt;/li>
-&lt;li>教育培训&lt;/li>
-&lt;li>原型验证&lt;/li>
-&lt;/ul>
-&lt;p>&lt;strong>不适用于：&lt;/strong>&lt;/p>
-&lt;ul>
-&lt;li>医疗诊断&lt;/li>
-&lt;li>临床应用&lt;/li>
-&lt;li>消费级产品&lt;/li>
-&lt;li>商业医疗设备&lt;/li>
-&lt;/ul>
-&lt;h2 id="联系信息">联系信息&lt;/h2>
-&lt;p>如对本声明有任何疑问，请联系：&lt;/p>
-&lt;ul>
-&lt;li>邮箱：info@pieeg.cn&lt;/li>
-&lt;li>网站：https://pieeg.cn&lt;/li>
-&lt;/ul>
-&lt;p>本声明的最终解释权归 PiEEG 所有。&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PIEEG - 低成本脑机接口设备</title>
+    <link>/</link>
+    <description>Recent content on PIEEG - 低成本脑机接口设备</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PiEEG-8 - 8通道脑机接口设备</title>
+      <link>/products/pieeg-8/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/products/pieeg-8/</guid>
+      <description>&lt;h1 id=&#34;pieeg-8---8通道脑机接口设备&#34;&gt;PiEEG-8 - 8通道脑机接口设备&lt;/h1&gt;&#xA;&lt;h2 id=&#34;基础信息&#34;&gt;基础信息&lt;/h2&gt;&#xA;&lt;p&gt;PiEEG（在树莓派上测量脑电）是一款开源的树莓派扩展板，可用于测量脑电（EEG）、肌电（EMG）和心电（ECG）等生物信号。PiEEG 兼容性强、使用简单，并支持多种类型的电极。最重要的是，它的设计宗旨是让任何人都能轻松上手。只需连接电极并运行一段 Python 脚本，即可开始进行生物信号的采集与分析。应用领域包括游戏、娱乐、运动、健康、冥想等多个方面。&lt;/p&gt;&#xA;&lt;p&gt;⚠️ &lt;strong&gt;重要提示&lt;/strong&gt;: PIEEG 不是医疗器械，未获得任何政府监管机构关于人体使用的认证。购买和使用完全由用户自行承担风险，请务必阅读&lt;a href=&#34;/disclaimer/&#34;&gt;《免责声明》&lt;/a&gt;。&lt;/p&gt;&#xA;&lt;h2 id=&#34;产品特性及参数&#34;&gt;产品特性及参数&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;兼容性&lt;/strong&gt;: 支持树莓派 3、4 和 5&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;通道数&lt;/strong&gt;: 8 个通道，支持湿电极和干电极连接&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;数据传输&lt;/strong&gt;: 通过 SPI 协议传输数据，采样频率从 250 SPS 至 16 kSPS，24 位分辨率&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;信号增益&lt;/strong&gt;: 可编程信号增益：1、2、4、6、8、12、24&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;阻抗测量&lt;/strong&gt;: 支持阻抗测量功能&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;扩展性&lt;/strong&gt;: 提供 3 个空闲引脚，可连接外部设备（接地与树莓派通道）&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;软件支持&lt;/strong&gt;: 配套开源软件，支持 Python 编程读取与处理数据&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;开源&lt;/strong&gt;: 所有技术细节、SDK 和软件资源已发布于 GitHub 和 YouTube&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;为什么选择pieeg-8&#34;&gt;为什么选择PiEEG-8&lt;/h2&gt;&#xA;&lt;p&gt;树莓派是全球最受欢迎的单板计算机之一，以其稳定性和易用性著称。将 PiEEG 与树莓派结合使用，为探索神经科学提供了一种便捷可及的方式。通过该组合，用户可以直接在树莓派上实现 EEG 数据的实时采集与处理，无需将数据传输到其他计算设备，也无需额外资源进行特征提取与信号处理。&lt;/p&gt;&#xA;&lt;p&gt;PiEEG 不仅是学习生物科学的绝佳工具，也具备多种实际应用潜力，如脑控机械手操作、压力管理、冥想训练等。&lt;/p&gt;&#xA;&lt;p&gt;我们为 PiEEG 用户提供完整的软件套件、详细的技术文档和丰富的使用支持。&lt;/p&gt;&#xA;&lt;h2 id=&#34;潜在应用场景&#34;&gt;潜在应用场景&lt;/h2&gt;&#xA;&lt;h3 id=&#34;学术研究&#34;&gt;学术研究&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://link.springer.com/chapter/10.1007/978-3-031-35599-8_15&#34;&gt;基于深度神经网络的树莓派实时脑电情绪识别方法&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.mdpi.com/1424-8220/21/8/2779&#34;&gt;单通道脑电创伤性脑损伤检测系统（基于树莓派）&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;实际应用&#34;&gt;实际应用&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.researchgate.net/publication/355083788_EEG-based_Brain_Computer_Interface_Prosthetic_Hand_using_Raspberry_Pi_4&#34;&gt;树莓派 4 脑电接口控制的假肢手系统&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://ieeexplore.ieee.org/abstract/document/8535959&#34;&gt;面向家庭应用的可穿戴脑电实时测量与分析平台&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;支持文件及软件&#34;&gt;支持文件及软件&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;GitHub仓库&lt;/strong&gt;: &lt;a href=&#34;https://github.com/pieeg-club/PiEEG&#34;&gt;https://github.com/pieeg-club/PiEEG&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;技术文档&lt;/strong&gt;: &lt;a href=&#34;https://pieeg.cn/docs/docs/pieeg/&#34;&gt;https://pieeg.cn/docs/docs/pieeg/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;技术规格&#34;&gt;技术规格&lt;/h2&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;规格项&lt;/th&gt;&#xA;          &lt;th&gt;参数&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;兼容平台&lt;/td&gt;&#xA;          &lt;td&gt;树莓派 3, 4, 5&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;通道数&lt;/td&gt;&#xA;          &lt;td&gt;8通道&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;电极类型&lt;/td&gt;&#xA;          &lt;td&gt;湿电极/干电极&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;分辨率&lt;/td&gt;&#xA;          &lt;td&gt;24位&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;采样频率&lt;/td&gt;&#xA;          &lt;td&gt;250 SPS - 16 kSPS&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;信号增益&lt;/td&gt;&#xA;          &lt;td&gt;1, 2, 4, 6, 8, 12, 24&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;通信协议&lt;/td&gt;&#xA;          &lt;td&gt;SPI&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;扩展引脚&lt;/td&gt;&#xA;          &lt;td&gt;3个空闲引脚&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;</description>
+    </item>
+    <item>
+      <title>PIEEG教育套件 - 集成式脑电学习套件</title>
+      <link>/products/education-kit/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/products/education-kit/</guid>
+      <description>&lt;h1 id=&#34;pieeg教育套件---集成式脑电学习套件&#34;&gt;PIEEG教育套件 - 集成式脑电学习套件&lt;/h1&gt;&#xA;&lt;h2 id=&#34;基础信息&#34;&gt;基础信息&lt;/h2&gt;&#xA;&lt;p&gt;PiEEG 教育套件是一款集成式脑电/生物电信号采集套件，可舒适、便捷地用于学习和探索来自大脑和身体的多种信号，包括脑电（EEG）、心电（EKG）、肌电（EMG）和眼电（EOG）。&lt;/p&gt;&#xA;&lt;p&gt;无论您是科研人员、在校学生，还是对科技充满热情的爱好者，PiEEG 都是一款理想工具。它适用于生物科学研究、信号处理、机器学习等领域的学习、原型验证和实验，支持基于实时数据的开发。&lt;/p&gt;&#xA;&lt;p&gt;同时，它也是送给学生或任何热爱自我探索与成长人士的绝佳礼物。&lt;/p&gt;&#xA;&lt;p&gt;⚠️ &lt;strong&gt;重要提示&lt;/strong&gt;: PIEEG 不是医疗器械，未获得任何政府监管机构关于人体使用的认证。购买和使用完全由用户自行承担风险，请务必阅读&lt;a href=&#34;/disclaimer/&#34;&gt;《免责声明》&lt;/a&gt;。&lt;/p&gt;&#xA;&lt;h2 id=&#34;产品特性及参数&#34;&gt;产品特性及参数&lt;/h2&gt;&#xA;&lt;h3 id=&#34;套件包含内容&#34;&gt;套件包含内容&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;1 个 PiEEG 主设备&lt;/strong&gt;（含外壳、显示屏、连接器、传感器板等）&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;1 台预装软件的 Raspberry Pi 5&lt;/strong&gt;（含 SD 卡）&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;1 个 EEG 脑电帽&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;8 个脑电电极及连接线&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;2 个夹式电极&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;10 片适用于肌电/心电/眼电（EMG/EKG/EOG）的贴片电极&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;1 套神经科学学习课程&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;技术规格&#34;&gt;技术规格&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;兼容平台&lt;/strong&gt;: Raspberry Pi 5&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;通道数&lt;/strong&gt;: 8通道&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;电极类型&lt;/strong&gt;: 湿电极/干电极&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;分辨率&lt;/strong&gt;: 24位&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;采样频率&lt;/strong&gt;: 250 SPS - 16 kSPS&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;信号增益&lt;/strong&gt;: 1, 2, 4, 6, 8, 12, 24&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;通信协议&lt;/strong&gt;: SPI&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;信号类型&lt;/strong&gt;: EEG、ECG、EMG、EOG&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;为什么选择pieeg教育套件&#34;&gt;为什么选择PIEEG教育套件&lt;/h2&gt;&#xA;&lt;h3 id=&#34;一体化设计&#34;&gt;一体化设计&lt;/h3&gt;&#xA;&lt;p&gt;PIEEG教育套件是一体化设计，无需为软件、电极、电缆等配件操心。一台设备，即可完成脑电（EEG）信号采集与特征提取，支持全流程的实时处理。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>PiEEG-16 - 16通道脑机接口设备</title>
+      <link>/products/pieeg-16/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/products/pieeg-16/</guid>
+      <description>&lt;h1 id=&#34;pieeg-16---16通道脑机接口设备&#34;&gt;PiEEG-16 - 16通道脑机接口设备&lt;/h1&gt;&#xA;&lt;h2 id=&#34;基础信息&#34;&gt;基础信息&lt;/h2&gt;&#xA;&lt;p&gt;PiEEG-16（在树莓派上测量脑电）是一款开源的树莓派扩展板，可用于测量脑电（EEG）、肌电（EMG）和心电（ECG）等生物信号。PiEEG-16 兼容性强、使用简单，并支持多种类型的电极。最重要的是，它的设计宗旨是让任何人都能轻松上手。只需连接电极并运行一段 Python 脚本，即可开始进行生物信号的采集与分析。应用领域包括游戏、娱乐、运动、健康、冥想等多个方面。&lt;/p&gt;&#xA;&lt;p&gt;⚠️ &lt;strong&gt;重要提示&lt;/strong&gt;: PIEEG 不是医疗器械，未获得任何政府监管机构关于人体使用的认证。购买和使用完全由用户自行承担风险，请务必阅读&lt;a href=&#34;/disclaimer/&#34;&gt;《免责声明》&lt;/a&gt;。&lt;/p&gt;&#xA;&lt;h2 id=&#34;产品特性及参数&#34;&gt;产品特性及参数&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;兼容性&lt;/strong&gt;: 兼容树莓派 5&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;通道数&lt;/strong&gt;: 支持 16 个通道，可连接湿电极或干电极&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;数据传输&lt;/strong&gt;: 采用 SPI 协议进行数据传输，采样频率范围为 250 SPS 至 16 kSPS，每通道分辨率为 24 位&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;信号增益&lt;/strong&gt;: 可编程信号增益：1、2、4、6、8、12、24 倍&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;阻抗测量&lt;/strong&gt;: 支持阻抗测量功能&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;软件支持&lt;/strong&gt;: 配套开源软件，支持通过 Python 编程读取与处理生物信号数据，开发简单便捷&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;为什么选择pieeg-16&#34;&gt;为什么选择PiEEG-16&lt;/h2&gt;&#xA;&lt;p&gt;PiEEG-16 支持 16 通道脑电信号采集，使其能够应用于更具挑战性和复杂度的科研或开发项目中，探索更多有趣的可能性。&lt;/p&gt;&#xA;&lt;p&gt;树莓派是全球最受欢迎的单板计算机之一，以其高可靠性和用户友好性广受赞誉。将 PiEEG 与树莓派结合使用，为进入神经科学领域提供了极具亲和力的入门路径。这种组合可直接在树莓派上完成脑电数据的采集与实时信号处理，无需将数据传输到其他设备，也无需额外的计算资源进行特征提取与信号分析。&lt;/p&gt;&#xA;&lt;p&gt;PiEEG 不仅是学习生物信号处理与脑科学的理想工具，也具备广泛的实际应用潜力，例如脑控机械手、情绪识别、压力管理、冥想训练等。&lt;/p&gt;&#xA;&lt;p&gt;我们为 PiEEG 用户提供完整的软件包、详细的技术文档和完善的用户支持，助力开发者与爱好者更高效地开展研究与项目开发。&lt;/p&gt;&#xA;&lt;h2 id=&#34;支持文件及软件&#34;&gt;支持文件及软件&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;GitHub仓库&lt;/strong&gt;: &lt;a href=&#34;https://github.com/pieeg-club/PiEEG&#34;&gt;https://github.com/pieeg-club/PiEEG&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;技术文档&lt;/strong&gt;: &lt;a href=&#34;https://pieeg.cn/docs/docs/pieeg-16/&#34;&gt;https://pieeg.cn/docs/docs/pieeg-16/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;技术规格&#34;&gt;技术规格&lt;/h2&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;规格项&lt;/th&gt;&#xA;          &lt;th&gt;参数&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;兼容平台&lt;/td&gt;&#xA;          &lt;td&gt;树莓派 5&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;通道数&lt;/td&gt;&#xA;          &lt;td&gt;16通道&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;电极类型&lt;/td&gt;&#xA;          &lt;td&gt;湿电极/干电极&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;分辨率&lt;/td&gt;&#xA;          &lt;td&gt;24位&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;采样频率&lt;/td&gt;&#xA;          &lt;td&gt;250 SPS - 16 kSPS&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;信号增益&lt;/td&gt;&#xA;          &lt;td&gt;1, 2, 4, 6, 8, 12, 24&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;通信协议&lt;/td&gt;&#xA;          &lt;td&gt;SPI&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;h2 id=&#34;应用优势&#34;&gt;应用优势&lt;/h2&gt;&#xA;&lt;h3 id=&#34;高通道密度&#34;&gt;高通道密度&lt;/h3&gt;&#xA;&lt;p&gt;16个通道提供更丰富的脑电信号采集能力，适合：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ardEEG - Arduino脑机接口扩展板</title>
+      <link>/products/ardeeg/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/products/ardeeg/</guid>
+      <description>&lt;h1 id=&#34;ardeeg---arduino脑机接口扩展板&#34;&gt;ardEEG - Arduino脑机接口扩展板&lt;/h1&gt;&#xA;&lt;h2 id=&#34;基础信息&#34;&gt;基础信息&lt;/h2&gt;&#xA;&lt;p&gt;ardEEG – 使用 Arduino 实现 EEG 信号采集。&lt;/p&gt;&#xA;&lt;p&gt;通过这款专为 Arduino 设计的扩展板，您可以采集 EEG、EMG 和 ECG 等生物电信号，支持多达 8 个 EEG 通道。&lt;/p&gt;&#xA;&lt;p&gt;⚠️ &lt;strong&gt;重要提示&lt;/strong&gt;: ardEEG 不是医疗器械，未获得任何政府监管机构关于人体使用的认证。购买和使用完全由用户自行承担风险，请务必阅读&lt;a href=&#34;/disclaimer/&#34;&gt;《免责声明》&lt;/a&gt;。&lt;/p&gt;&#xA;&lt;h2 id=&#34;产品特性及参数&#34;&gt;产品特性及参数&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;兼容性&lt;/strong&gt;: 兼容 Arduino UNO R4 WiFi&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;通道数&lt;/strong&gt;: 支持 8 个通道，可连接湿电极或干电极&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;数据传输&lt;/strong&gt;: 采用 SPI 协议进行数据传输，采样频率范围为 250 SPS 到 16 kSPS，每通道分辨率 24 位&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;信号增益&lt;/strong&gt;: 可编程信号增益：1、2、4、6、8、12、24 倍&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;阻抗测量&lt;/strong&gt;: 支持阻抗测量功能&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;软件支持&lt;/strong&gt;: 提供开源软件，支持使用 Python 进行数据读取与处理&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;开源&lt;/strong&gt;: 所有技术细节详见 GitHub 与 YouTube&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;为什么选择ardeeg&#34;&gt;为什么选择ardEEG&lt;/h2&gt;&#xA;&lt;p&gt;如果你熟悉 Arduino 在电子学习中的作用，那么 ardEEG 是你从电子入门迈向神经科学的理想工具。&lt;/p&gt;&#xA;&lt;p&gt;Arduino 是全球最受欢迎的微控制器学习平台之一，操作简便、拓展性强。而将 ardEEG 与 Arduino 连接使用，可以轻松跨入生物电信号采集与脑科学研究的领域。其显著优势在于超低功耗、体积小、重量轻，因此非常适合打造可穿戴设备，适用于如脑控机械臂、健康监测等高需求场景。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>JNEEG - Jetson Nano脑机接口扩展板</title>
+      <link>/products/jneeg/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/products/jneeg/</guid>
+      <description>&lt;h1 id=&#34;jneeg---jetson-nano脑机接口扩展板&#34;&gt;JNEEG - Jetson Nano脑机接口扩展板&lt;/h1&gt;&#xA;&lt;h2 id=&#34;基础信息&#34;&gt;基础信息&lt;/h2&gt;&#xA;&lt;p&gt;通过 JNEEG 脑机接口（低成本 EEG 设备）为 NVIDIA Jetson Nano 配备扩展板，实现 8 通道 EEG、EMG 及 ECG 生物信号的采集。&lt;/p&gt;&#xA;&lt;p&gt;JNEEG 是专为 Jetson Nano 设计的一款工具，能够测量来自大脑、肌肉及心脏的生物电信号。该设备开源且免费，兼容多种传感器类型。只需连接传感器并运行简单的 Python 程序，即可开始数据采集。广泛适用于游戏、娱乐、运动、健康管理、冥想等多个领域。&lt;/p&gt;&#xA;&lt;p&gt;⚠️ &lt;strong&gt;重要提示&lt;/strong&gt;: JNEEG 不是医疗设备，未获得任何政府监管机构认证用于人体。购买与使用风险由用户自行承担，请务必阅读&lt;a href=&#34;/disclaimer/&#34;&gt;《免责声明》&lt;/a&gt;。&lt;/p&gt;&#xA;&lt;h2 id=&#34;产品特性及参数&#34;&gt;产品特性及参数&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;兼容性&lt;/strong&gt;: 兼容 NVIDIA Jetson Nano&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;通道数&lt;/strong&gt;: 支持 8 个通道，连接湿电极或干电极&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;数据传输&lt;/strong&gt;: 采用 SPI 协议传输数据，采样频率 250 SPS 至 16 kSPS，24 位分辨率&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;信号增益&lt;/strong&gt;: 可编程信号增益：1、2、4、6、8、12、24&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;阻抗测量&lt;/strong&gt;: 支持阻抗测量&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;软件支持&lt;/strong&gt;: 提供开源软件，支持 Python 编程读取和处理数据&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;为什么选择jneeg&#34;&gt;为什么选择JNEEG&lt;/h2&gt;&#xA;&lt;p&gt;JNEEG 专为结合机器学习和深度学习技术处理 EEG 及其他生物信号的特征提取任务而设计。&lt;/p&gt;&#xA;&lt;p&gt;Jetson Nano 是全球最受尊敬的单板计算机之一，因其出色的实时机器学习能力而广泛应用于计算机视觉和机器人控制等领域。&lt;/p&gt;&#xA;&lt;p&gt;将 JNEEG 与 Jetson Nano 结合使用，开启了借助深度学习深入神经科学研究的新途径。该组合能够在 Jetson Nano 上实现 EEG 数据的无缝实时读取和信号处理，无需额外的数据传输或计算资源进行特征提取，极大提升效率。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>法律责任声明</title>
+      <link>/disclaimer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/disclaimer/</guid>
+      <description>&lt;h1 id=&#34;法律责任声明&#34;&gt;法律责任声明&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;适用于：PiEEG系列产品（包括 PiEEG、ardEEG、JNEEG）&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;您在购买和使用 PiEEG 设备时完全出于个人自愿，并对设备的使用安全负全责。PiEEG 设备并非医疗器械，未获得任何国家或政府监管机构的医疗认证，不建议用于人体相关操作，请用户自行承担使用风险。&lt;/p&gt;&#xA;&lt;p&gt;PiEEG 设备受以下条款限制。本评估板/开发套件仅限用于工程开发、演示或评估目的，并不适用于面向普通消费者的最终产品。&lt;/p&gt;&#xA;&lt;h2 id=&#34;责任限制说明&#34;&gt;责任限制说明&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;PiEEG 设备不适用于医疗、临床或诊断用途，以&amp;quot;原样&amp;quot;提供。PiEEG 不对其功能、操作或用途提供任何明示或暗示的担保，包括但不限于针对特定用途的适用性或不侵犯他人权利的隐含担保。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;所有 PiEEG 设备及其配套设备仅适用于低压直流电源供电（例如 5V 电池），严禁在任何情况下连接市电、电源插座、USB口等电网供电源，无论用途为何。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;使用本产品的人员必须具备电子工程相关知识，并遵守标准的工程实践。该产品未涵盖终端产品通常具备的设计、营销及生产安全考虑，例如常规的安全与环境保护措施。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;本评估板/开发套件不适用于欧盟关于电磁兼容性（EMC）、有害物质限制（RoHS）、回收（WEEE）、FCC、CE、UL 等法规，因此可能不符合上述法规的技术要求。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;PiEEG 明确表示不承担任何直接、间接、连带、偶发或特殊损失，包括但不限于利润损失、业务中断、数据丢失等，即使已被告知可能会发生此类损害。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;无论基于何种法律理论（包括合同、侵权、严格责任等），PiEEG 对终端用户的赔偿责任总额，在任何情况下不得超过用户为该产品实际支付的总金额。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;使用须知&#34;&gt;使用须知&lt;/h2&gt;&#xA;&lt;h3 id=&#34;设备安全&#34;&gt;设备安全&lt;/h3&gt;&#xA;&lt;p&gt;该设备非面向消费者的家用产品。为方便开发人员和专业用户调试使用，其内部电路在正常工作状态下保持暴露。因此，您应了解暴露电路的潜在风险，并熟悉标准防静电操作流程，或自行设计保护外壳。&lt;/p&gt;&#xA;&lt;h3 id=&#34;电源要求&#34;&gt;电源要求&lt;/h3&gt;&#xA;&lt;p&gt;此外，本设备不具备患者隔离电路，务必确保连接设备始终由 5V 电池供电。&lt;/p&gt;&#xA;&lt;h3 id=&#34;专业知识要求&#34;&gt;专业知识要求&lt;/h3&gt;&#xA;&lt;p&gt;使用本产品需要具备：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;电子工程基础知识&lt;/li&gt;&#xA;&lt;li&gt;标准的工程实践经验&lt;/li&gt;&#xA;&lt;li&gt;生物信号处理相关知识&lt;/li&gt;&#xA;&lt;li&gt;安全操作意识&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;应用限制&#34;&gt;应用限制&lt;/h3&gt;&#xA;&lt;p&gt;本产品仅适用于：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;工程开发和评估&lt;/li&gt;&#xA;&lt;li&gt;学术研究&lt;/li&gt;&#xA;&lt;li&gt;教育培训&lt;/li&gt;&#xA;&lt;li&gt;原型验证&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;不适用于：&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;医疗诊断&lt;/li&gt;&#xA;&lt;li&gt;临床应用&lt;/li&gt;&#xA;&lt;li&gt;消费级产品&lt;/li&gt;&#xA;&lt;li&gt;商业医疗设备&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;联系信息&#34;&gt;联系信息&lt;/h2&gt;&#xA;&lt;p&gt;如对本声明有任何疑问，请联系：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;邮箱：info@pieeg.cn&lt;/li&gt;&#xA;&lt;li&gt;网站：https://pieeg.cn&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;本声明的最终解释权归 PiEEG 所有。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

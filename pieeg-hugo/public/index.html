@@ -1,7 +1,430 @@
-<!doctype html><html lang=zh-CN><head><meta name=generator content="Hugo 0.147.8"><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>PIEEG - 低成本脑机接口设备 - PIEEG - 低成本脑机接口设备</title><meta name=description content="PIEEG提供易于使用和购买的低成本脑机接口设备，让神经科学研究变得触手可及。我们的设备可测量EEG、EMG和ECG生物信号，适用于Raspberry Pi、Arduino和Jetson Nano平台。"><meta name=keywords content="脑机接口,EEG,EMG,ECG,Raspberry Pi,Arduino,Jetson Nano,神经科学"><meta name=author content="PIEEG Team"><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel=stylesheet><link rel=stylesheet href=/css/style.css><script src=https://cdn.plot.ly/plotly-latest.min.js></script></head><body><nav class=navbar><div class="container navbar-container"><a href=/ class=navbar-logo>PI<span>EEG</span></a>
-<button class=navbar-toggle id=navbar-toggle>
-<i class="fas fa-bars"></i></button><ul class=navbar-menu id=navbar-menu><li><a href=/ class=active>首页</a></li><li><a href=/products/>产品</a></li><li><a href=/#charts>数据可视化</a></li><li><a href=/#about>关于我们</a></li></ul></div></nav><main><section class=hero><div class=container><div class=hero-content><div class=hero-text><h1>低成本脑机接口，人人可用</h1><p>PIEEG提供易于使用和购买的低成本脑机接口设备，让神经科学研究变得触手可及。我们的设备可测量EEG、EMG和ECG生物信号，适用于Raspberry Pi、Arduino和Jetson Nano平台。</p><div class=hero-buttons><a href=/products/ class="btn btn-primary">探索产品</a>
-<a href=#charts class="btn btn-outline">查看演示</a></div></div><div class=hero-image><img src=/images/pieeg-hero.png alt=PIEEG设备></div></div></div></section><section id=products class=products><div class=container><div class=section-title><h2>我们的产品</h2><p>探索PIEEG系列产品，为您的研究、学习和创新项目提供支持</p></div><div class=product-grid><div class=product-card><div class=product-image><img src=/images/pieeg-8.png alt=PiEEG-8></div><div class=product-content><h3>PiEEG-8</h3><p>8通道脑机接口设备，兼容Raspberry Pi，用于测量EEG、EMG和ECG生物信号</p><ul class=product-features><li>兼容Raspberry Pi 3, 4和5</li><li>8个通道连接湿电极或干电极</li><li>24位分辨率，250 SPS至16 kSPS采样率</li><li>可编程信号增益：1, 2, 4, 6, 8, 12, 24</li></ul><a href=/products/pieeg-8/ class="btn btn-primary">了解更多</a></div></div><div class=product-card><div class=product-image><img src=/images/pieeg-16.png alt=PiEEG-16></div><div class=product-content><h3>PiEEG-16</h3><p>16通道脑机接口设备，兼容Raspberry Pi，用于测量EEG、EMG和ECG生物信号</p><ul class=product-features><li>兼容Raspberry Pi 5</li><li>16个通道连接湿电极或干电极</li><li>24位分辨率，250 SPS至16 kSPS采样率</li><li>可编程信号增益：1, 2, 4, 6, 8, 12, 24</li></ul><a href=/products/pieeg-16/ class="btn btn-primary">了解更多</a></div></div><div class=product-card><div class=product-image><img src=/images/pieeg-education-kit.png alt=PIEEG教育套件></div><div class=product-content><h3>PIEEG教育套件</h3><p>集成式脑电学习套件，包含完整硬件、软件和神经科学学习课程</p><ul class=product-features><li>包含PiEEG设备、Raspberry Pi 5和完整配件</li><li>8个脑电电极、夹式电极和贴片电极</li><li>预装软件和神经科学学习课程</li><li>支持EEG、ECG、EMG、EOG多种信号</li></ul><a href=/products/education-kit/ class="btn btn-primary">了解更多</a></div></div><div class=product-card><div class=product-image><img src=/images/ardeeg.png alt=ardEEG></div><div class=product-content><h3>ardEEG</h3><p>Arduino扩展板，8通道脑机接口设备，用于测量EEG、EMG和ECG生物信号</p><ul class=product-features><li>兼容Arduino UNO R4 WiFi</li><li>8个通道连接湿电极或干电极</li><li>24位分辨率，250 SPS至16 kSPS采样率</li><li>低功耗，适合可穿戴设备应用</li></ul><a href=/products/ardeeg/ class="btn btn-primary">了解更多</a></div></div><div class=product-card><div class=product-image><img src=/images/jneeg.png alt=JNEEG></div><div class=product-content><h3>JNEEG</h3><p>Jetson Nano扩展板，8通道脑机接口设备，专为深度学习应用设计</p><ul class=product-features><li>兼容Jetson Nano</li><li>8个通道连接湿电极或干电极</li><li>24位分辨率，250 SPS至16 kSPS采样率</li><li>适合实时机器学习和深度学习应用</li></ul><a href=/products/jneeg/ class="btn btn-primary">了解更多</a></div></div></div></div></section><section id=charts class=chart-section><div class=container><div class=section-title><h2>数据可视化</h2><p>探索PIEEG设备采集的脑电波数据和信号处理结果</p></div><div class=chart-row><div class=chart-col><div class=chart-container id=eeg-waveform-chart></div></div><div class=chart-col><div class=chart-container id=spectral-analysis-chart></div></div></div><div class=chart-row><div class=chart-col><div class=chart-container id=multi-channel-eeg-chart></div></div><div class=chart-col><div class=chart-container id=brain-topo-map></div></div></div><div class=chart-row><div class=chart-col><div class=chart-container id=product-comparison-chart></div></div><div class=chart-col><div class=chart-container id=frequency-band-chart></div></div></div></div></section><section class=applications><div class=container><div class=section-title><h2>应用场景</h2><p>PIEEG设备可应用于多种领域，从研究到娱乐，从健康到教育</p></div><div class=application-grid><div class=application-card><div class=application-icon><i class="fas fa-brain"></i></div><div class=application-content><h3>神经科学研究</h3><p>低成本设备让更多研究者能够进行脑电波研究，推动神经科学发展</p></div></div><div class=application-card><div class=application-icon><i class="fas fa-gamepad"></i></div><div class=application-content><h3>脑控游戏</h3><p>使用脑电波控制游戏，创造全新的交互体验</p></div></div><div class=application-card><div class=application-icon><i class="fas fa-robot"></i></div><div class=application-content><h3>脑控机器人</h3><p>通过脑机接口控制机器人，实现思维控制的未来科技</p></div></div><div class=application-card><div class=application-icon><i class="fas fa-heartbeat"></i></div><div class=application-content><h3>健康监测</h3><p>监测脑电波和心电图数据，辅助健康管理和压力监控</p></div></div><div class=application-card><div class=application-icon><i class="fas fa-spa"></i></div><div class=application-content><h3>冥想辅助</h3><p>实时监测冥想状态，提供反馈，帮助改善冥想质量</p></div></div><div class=application-card><div class=application-icon><i class="fas fa-graduation-cap"></i></div><div class=application-content><h3>教育与学习</h3><p>通过实践项目学习神经科学、信号处理和机器学习</p></div></div></div></div></section><section id=about class=contact-section><div class=container><div class=section-title><h2>联系我们</h2><p>获取技术支持、产品咨询或合作机会</p></div><div class=contact-grid><div class=contact-card><div class=contact-icon><i class="fas fa-envelope"></i></div><div class=contact-content><h3>邮件联系</h3><p>技术支持和产品咨询</p><a href=mailto:info@pieeg.cn class=contact-link>info@pieeg.cn</a></div></div><div class=contact-card><div class=contact-icon><i class="fab fa-github"></i></div><div class=contact-content><h3>开源代码</h3><p>查看源代码和文档</p><a href=https://github.com/pieeg class=contact-link>GitHub</a></div></div><div class=contact-card><div class=contact-icon><i class="fas fa-download"></i></div><div class=contact-content><h3>资源下载</h3><p>软件包和技术文档</p><a href=#downloads class=contact-link>下载中心</a></div></div></div></div></section></main><footer class=footer><div class=container><div class=footer-grid><div class=footer-column><h3>关于PIEEG</h3><p>PIEEG提供低成本脑机接口设备，让神经科学研究变得触手可及。我们的使命是让脑机接口技术普及化，为研究者、学生和爱好者提供可靠的工具。</p><div class=footer-social><a href=#><i class="fab fa-github"></i></a>
-<a href=#><i class="fab fa-youtube"></i></a>
-<a href=#><i class="fab fa-twitter"></i></a></div></div><div class=footer-column><h3>产品</h3><ul class=footer-links><li><a href=/products/pieeg-8/>PiEEG-8</a></li><li><a href=/products/pieeg-16/>PiEEG-16</a></li><li><a href=/products/ardeeg/>ardEEG</a></li><li><a href=/products/jneeg/>JNEEG</a></li><li><a href=/products/accessories/>配件</a></li></ul></div><div class=footer-column><h3>资源</h3><ul class=footer-links><li><a href=/docs/technical/>技术文档</a></li><li><a href=https://github.com/pieeg>GitHub代码库</a></li><li><a href=/docs/courses/>信号处理课程</a></li><li><a href=/docs/faq/>常见问题</a></li><li><a href=/downloads/>下载中心</a></li></ul></div><div class=footer-column><h3>联系我们</h3><ul class=footer-links><li><i class="fas fa-envelope"></i> <a href=mailto:info@pieeg.cn>info@pieeg.cn</a></li><li><i class="fas fa-globe"></i> <a href=https://pieeg.cn>pieeg.cn</a></li></ul></div></div><div class=footer-bottom><p>&copy; 2025 PIEEG. 保留所有权利。
-| <a href=https://beian.miit.gov.cn/ target=_blank rel=noopener>京ICP备12345678号-1</a></p></div></div></footer><script src=/js/charts.js></script><script>document.addEventListener("DOMContentLoaded",function(){const e=document.getElementById("navbar-toggle"),t=document.getElementById("navbar-menu");e&&t&&e.addEventListener("click",function(){t.classList.toggle("active")})})</script><script>typeof initializeAllCharts=="function"&&initializeAllCharts()</script></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta name="generator" content="Hugo 0.147.8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIEEG - 低成本脑机接口设备 - PIEEG - 低成本脑机接口设备</title>
+    <meta name="description" content="PIEEG提供易于使用和购买的低成本脑机接口设备，让神经科学研究变得触手可及。我们的设备可测量EEG、EMG和ECG生物信号，适用于Raspberry Pi、Arduino和Jetson Nano平台。">
+    <meta name="keywords" content="脑机接口,EEG,EMG,ECG,Raspberry Pi,Arduino,Jetson Nano,神经科学">
+    <meta name="author" content="PIEEG Team">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?your_baidu_site_id_here";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</head>
+<body>
+    
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="/" class="navbar-logo">PI<span>EEG</span></a>
+            <button class="navbar-toggle" id="navbar-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="navbar-menu" id="navbar-menu">
+                
+                <li><a href="/" class="active">首页</a></li>
+                
+                <li><a href="/products/">产品</a></li>
+                
+                <li><a href="/#charts">数据可视化</a></li>
+                
+                <li><a href="/#about">关于我们</a></li>
+                
+            </ul>
+        </div>
+    </nav>
+
+    
+    <main>
+        
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>低成本脑机接口，人人可用</h1>
+        <p>PIEEG提供易于使用和购买的低成本脑机接口设备，让神经科学研究变得触手可及。我们的设备可测量EEG、EMG和ECG生物信号，适用于Raspberry Pi、Arduino和Jetson Nano平台。</p>
+        <div class="hero-buttons">
+          <a href="/products/" class="btn btn-primary">探索产品</a>
+          <a href="#charts" class="btn btn-outline">查看演示</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="/images/pieeg-hero.png" alt="PIEEG设备">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="products" class="products">
+  <div class="container">
+    <div class="section-title">
+      <h2>我们的产品</h2>
+      <p>探索PIEEG系列产品，为您的研究、学习和创新项目提供支持</p>
+    </div>
+
+    <div class="product-grid">
+      
+      <div class="product-card">
+        <div class="product-image">
+          <img src="/images/pieeg8/pieeg8-1.png" alt="PiEEG-8">
+        </div>
+        <div class="product-content">
+          <h3>PiEEG-8</h3>
+          <p>8通道脑机接口设备，兼容Raspberry Pi，用于测量EEG、EMG和ECG生物信号</p>
+          <ul class="product-features">
+            
+            <li>兼容Raspberry Pi 3, 4和5</li>
+            
+            <li>8个通道连接湿电极或干电极</li>
+            
+            <li>24位分辨率，250 SPS至16 kSPS采样率</li>
+            
+            <li>可编程信号增益：1, 2, 4, 6, 8, 12, 24</li>
+            
+          </ul>
+          <a href="/products/pieeg-8/" class="btn btn-primary">了解更多</a>
+        </div>
+      </div>
+      
+      <div class="product-card">
+        <div class="product-image">
+          <img src="/images/pieeg16/pieeg16-1.png" alt="PiEEG-16">
+        </div>
+        <div class="product-content">
+          <h3>PiEEG-16</h3>
+          <p>16通道脑机接口设备，兼容Raspberry Pi，用于测量EEG、EMG和ECG生物信号</p>
+          <ul class="product-features">
+            
+            <li>兼容Raspberry Pi 5</li>
+            
+            <li>16个通道连接湿电极或干电极</li>
+            
+            <li>24位分辨率，250 SPS至16 kSPS采样率</li>
+            
+            <li>可编程信号增益：1, 2, 4, 6, 8, 12, 24</li>
+            
+          </ul>
+          <a href="/products/pieeg-16/" class="btn btn-primary">了解更多</a>
+        </div>
+      </div>
+      
+      <div class="product-card">
+        <div class="product-image">
+          <img src="/images/pieeg-kit/pieeg-kit-1.png" alt="PIEEG教育套件">
+        </div>
+        <div class="product-content">
+          <h3>PIEEG教育套件</h3>
+          <p>集成式脑电学习套件，包含完整硬件、软件和神经科学学习课程</p>
+          <ul class="product-features">
+            
+            <li>包含PiEEG设备、Raspberry Pi 5和完整配件</li>
+            
+            <li>8个脑电电极、夹式电极和贴片电极</li>
+            
+            <li>预装软件和神经科学学习课程</li>
+            
+            <li>支持EEG、ECG、EMG、EOG多种信号</li>
+            
+          </ul>
+          <a href="/products/education-kit/" class="btn btn-primary">了解更多</a>
+        </div>
+      </div>
+      
+      <div class="product-card">
+        <div class="product-image">
+          <img src="/images/ardeeg/ardeeg-1.png" alt="ardEEG">
+        </div>
+        <div class="product-content">
+          <h3>ardEEG</h3>
+          <p>Arduino扩展板，8通道脑机接口设备，用于测量EEG、EMG和ECG生物信号</p>
+          <ul class="product-features">
+            
+            <li>兼容Arduino UNO R4 WiFi</li>
+            
+            <li>8个通道连接湿电极或干电极</li>
+            
+            <li>24位分辨率，250 SPS至16 kSPS采样率</li>
+            
+            <li>低功耗，适合可穿戴设备应用</li>
+            
+          </ul>
+          <a href="/products/ardeeg/" class="btn btn-primary">了解更多</a>
+        </div>
+      </div>
+      
+      <div class="product-card">
+        <div class="product-image">
+          <img src="/images/jneeg/jneeg-1.png" alt="JNEEG">
+        </div>
+        <div class="product-content">
+          <h3>JNEEG</h3>
+          <p>Jetson Nano扩展板，8通道脑机接口设备，专为深度学习应用设计</p>
+          <ul class="product-features">
+            
+            <li>兼容Jetson Nano</li>
+            
+            <li>8个通道连接湿电极或干电极</li>
+            
+            <li>24位分辨率，250 SPS至16 kSPS采样率</li>
+            
+            <li>适合实时机器学习和深度学习应用</li>
+            
+          </ul>
+          <a href="/products/jneeg/" class="btn btn-primary">了解更多</a>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+<section id="charts" class="chart-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>数据可视化</h2>
+      <p>探索PIEEG设备采集的脑电波数据和信号处理结果</p>
+    </div>
+
+    <div class="chart-row">
+      <div class="chart-col">
+        <div class="chart-container" id="eeg-waveform-chart"></div>
+      </div>
+      <div class="chart-col">
+        <div class="chart-container" id="spectral-analysis-chart"></div>
+      </div>
+    </div>
+
+    <div class="chart-row">
+      <div class="chart-col">
+        <div class="chart-container" id="multi-channel-eeg-chart"></div>
+      </div>
+      <div class="chart-col">
+        <div class="chart-container" id="brain-topo-map"></div>
+      </div>
+    </div>
+
+    <div class="chart-row">
+      <div class="chart-col">
+        <div class="chart-container" id="product-comparison-chart"></div>
+      </div>
+      <div class="chart-col">
+        <div class="chart-container" id="frequency-band-chart"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="applications">
+  <div class="container">
+    <div class="section-title">
+      <h2>应用场景</h2>
+      <p>PIEEG设备可应用于多种领域，从研究到娱乐，从健康到教育</p>
+    </div>
+
+    <div class="application-grid">
+      
+      <div class="application-card">
+        <div class="application-icon">
+          <i class="fas fa-brain"></i>
+        </div>
+        <div class="application-content">
+          <h3>神经科学研究</h3>
+          <p>低成本设备让更多研究者能够进行脑电波研究，推动神经科学发展</p>
+        </div>
+      </div>
+      
+      <div class="application-card">
+        <div class="application-icon">
+          <i class="fas fa-gamepad"></i>
+        </div>
+        <div class="application-content">
+          <h3>脑控游戏</h3>
+          <p>使用脑电波控制游戏，创造全新的交互体验</p>
+        </div>
+      </div>
+      
+      <div class="application-card">
+        <div class="application-icon">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div class="application-content">
+          <h3>脑控机器人</h3>
+          <p>通过脑机接口控制机器人，实现思维控制的未来科技</p>
+        </div>
+      </div>
+      
+      <div class="application-card">
+        <div class="application-icon">
+          <i class="fas fa-heartbeat"></i>
+        </div>
+        <div class="application-content">
+          <h3>健康监测</h3>
+          <p>监测脑电波和心电图数据，辅助健康管理和压力监控</p>
+        </div>
+      </div>
+      
+      <div class="application-card">
+        <div class="application-icon">
+          <i class="fas fa-spa"></i>
+        </div>
+        <div class="application-content">
+          <h3>冥想辅助</h3>
+          <p>实时监测冥想状态，提供反馈，帮助改善冥想质量</p>
+        </div>
+      </div>
+      
+      <div class="application-card">
+        <div class="application-icon">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <div class="application-content">
+          <h3>教育与学习</h3>
+          <p>通过实践项目学习神经科学、信号处理和机器学习</p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+<section id="about" class="contact-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>联系我们</h2>
+      <p>获取技术支持、产品咨询或合作机会</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-icon">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <div class="contact-content">
+          <h3>邮件联系</h3>
+          <p>技术支持和产品咨询</p>
+                              <a href="mailto:info@pieeg.cn" class="contact-link">info@pieeg.cn</a>
+        </div>
+      </div>
+      
+      <div class="contact-card">
+        <div class="contact-icon">
+          <i class="fab fa-github"></i>
+        </div>
+        <div class="contact-content">
+          <h3>开源代码</h3>
+          <p>查看源代码和文档</p>
+          <a href="https://github.com/pieeg" class="contact-link">GitHub</a>
+        </div>
+      </div>
+      
+      <div class="contact-card">
+        <div class="contact-icon">
+          <i class="fas fa-download"></i>
+        </div>
+        <div class="contact-content">
+          <h3>资源下载</h3>
+          <p>软件包和技术文档</p>
+          <a href="#downloads" class="contact-link">下载中心</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    </main>
+
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>关于PIEEG</h3>
+                    <p>PIEEG提供低成本脑机接口设备，让神经科学研究变得触手可及。我们的使命是让脑机接口技术普及化，为研究者、学生和爱好者提供可靠的工具。</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>产品</h3>
+                    <ul class="footer-links">
+                        <li><a href="/products/pieeg-8/">PiEEG-8</a></li>
+                        <li><a href="/products/pieeg-16/">PiEEG-16</a></li>
+                        <li><a href="/products/ardeeg/">ardEEG</a></li>
+                        <li><a href="/products/jneeg/">JNEEG</a></li>
+                        <li><a href="/products/education-kit/">教育套件</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>资源</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com/pieeg/docs" target="_blank">技术文档</a></li>
+                        <li><a href="https://github.com/pieeg" target="_blank">GitHub代码库</a></li>
+                        <li><a href="https://github.com/pieeg/tutorials" target="_blank">教程资源</a></li>
+                        <li><a href="/disclaimer/">免责声明</a></li>
+                        <li><a href="/products/">产品中心</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>联系我们</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@pieeg.cn">info@pieeg.cn</a></li>
+                        <li><i class="fas fa-globe"></i> <a href="https://pieeg.cn">pieeg.cn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2025 PIEEG. 保留所有权利。
+                    
+                    | <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">京ICP备12345678号-1</a>
+                    
+                    
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    
+    <script src="/js/charts.js"></script>
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbarToggle = document.getElementById('navbar-toggle');
+            const navbarMenu = document.getElementById('navbar-menu');
+            
+            if (navbarToggle && navbarMenu) {
+                navbarToggle.addEventListener('click', function() {
+                    navbarMenu.classList.toggle('active');
+                });
+            }
+
+        });
+    </script>
+<script>
+
+if (typeof initializeAllCharts === 'function') {
+    initializeAllCharts();
+}
+</script>
+
+</body>
+</html> 

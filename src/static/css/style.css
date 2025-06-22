@@ -258,6 +258,20 @@ a:hover {
   box-shadow: var(--shadow-md);
 }
 
+/* 锚点跳转修复 - 避免固定导航栏遮挡 */
+section[id] {
+  scroll-margin-top: 90px; /* 导航栏高度70px + 20px间距 */
+}
+
+/* 为较老浏览器提供兼容性支持 */
+section[id]::before {
+  content: '';
+  display: block;
+  height: 90px; /* 导航栏高度70px + 20px间距 */
+  margin-top: -90px;
+  visibility: hidden;
+}
+
 /* 部分标题 */
 .section-title {
   text-align: center;
@@ -377,7 +391,34 @@ a:hover {
   padding: var(--spacing-lg);
   box-shadow: var(--shadow-sm);
   margin-bottom: var(--spacing-lg);
-  height: 400px;
+  min-height: 400px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Plotly图表样式优化 */
+.chart-container .plotly-graph-div {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.chart-container .js-plotly-plot {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 350px !important;
+}
+
+/* 隐藏所有Plotly的模式栏和工具提示 */
+.chart-container .modebar,
+.chart-container .modebar-group,
+.chart-container .modebar-btn {
+  display: none !important;
+}
+
+/* 确保图表完全适应容器 */
+.chart-container .main-svg {
+  width: 100% !important;
+  height: auto !important;
 }
 
 .chart-row {

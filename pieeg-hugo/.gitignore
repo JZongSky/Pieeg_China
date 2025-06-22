@@ -1,0 +1,39 @@
+# Hugo 构建输出
+/public/
+/resources/
+
+# Hugo 临时文件
+.hugo_build.lock
+
+# 系统文件
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# 编辑器文件
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 临时文件
+*.tmp
+*.temp
+*.bak
+*.old
+
+# 依赖文件
+node_modules/
+npm-debug.log*
+
+# 环境文件
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local 

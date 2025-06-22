@@ -73,12 +73,12 @@ function createEEGWaveformChart(containerId, channelName = 'Fp1') {
         b: 50
       },
       hovermode: 'closest',
-      showlegend: true
+      showlegend: false
     };
     
     const config = {
       responsive: true,
-      displayModeBar: true,
+      displayModeBar: false,
       modeBarButtonsToRemove: ['lasso2d', 'select2d'],
       displaylogo: false
     };
@@ -139,12 +139,12 @@ function createMultiChannelEEGChart(containerId, channels = ['Fp1', 'Fp2', 'F3',
         b: 50
       },
       hovermode: 'closest',
-      showlegend: true
+      showlegend: false
     };
     
     const config = {
       responsive: true,
-      displayModeBar: true,
+      displayModeBar: false,
       modeBarButtonsToRemove: ['lasso2d', 'select2d'],
       displaylogo: false
     };
@@ -237,12 +237,12 @@ function createSpectralAnalysisChart(containerId, channelName = 'O1') {
         b: 50
       },
       hovermode: 'closest',
-      showlegend: true
+      showlegend: false
     };
     
     const config = {
       responsive: true,
-      displayModeBar: true,
+      displayModeBar: false,
       modeBarButtonsToRemove: ['lasso2d', 'select2d'],
       displaylogo: false
     };
@@ -302,7 +302,7 @@ function createProductComparisonChart(containerId) {
           range: [0, 1]
         }
       },
-      showlegend: true,
+      showlegend: false,
       margin: {
         l: 50,
         r: 50,
@@ -366,12 +366,12 @@ function createEMGWaveformChart(containerId) {
         b: 50
       },
       hovermode: 'closest',
-      showlegend: true
+      showlegend: false
     };
     
     const config = {
       responsive: true,
-      displayModeBar: true,
+      displayModeBar: false,
       modeBarButtonsToRemove: ['lasso2d', 'select2d'],
       displaylogo: false
     };
@@ -424,12 +424,12 @@ function createECGWaveformChart(containerId) {
         b: 50
       },
       hovermode: 'closest',
-      showlegend: true
+      showlegend: false
     };
     
     const config = {
       responsive: true,
-      displayModeBar: true,
+      displayModeBar: false,
       modeBarButtonsToRemove: ['lasso2d', 'select2d'],
       displaylogo: false
     };
@@ -580,7 +580,7 @@ function create3DBrainTopoMap(containerId) {
     
     const config = {
       responsive: true,
-      displayModeBar: true,
+      displayModeBar: false,
       displaylogo: false
     };
     
@@ -671,6 +671,17 @@ function createFrequencyBandBarChart(containerId, channelName = 'O1') {
   });
 }
 
+// 窗口调整大小时重新调整图表
+function resizeCharts() {
+  const chartContainers = document.querySelectorAll('.chart-container');
+  chartContainers.forEach(container => {
+    const plotlyDiv = container.querySelector('.js-plotly-plot');
+    if (plotlyDiv) {
+      Plotly.Plots.resize(plotlyDiv);
+    }
+  });
+}
+
 // 初始化所有图表
 function initializeAllCharts() {
   // 检查容器是否存在
@@ -712,6 +723,9 @@ function initializeAllCharts() {
 
 // 页面加载完成后初始化图表
 document.addEventListener('DOMContentLoaded', initializeAllCharts);
+
+// 窗口调整大小时重新调整图表
+window.addEventListener('resize', resizeCharts);
 
 // 导出函数供外部使用
 window.PIEEG = {
