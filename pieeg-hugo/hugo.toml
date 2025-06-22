@@ -1,0 +1,50 @@
+baseURL = '/'
+languageCode = 'zh-CN'
+title = 'PIEEG - 低成本脑机接口设备'
+defaultContentLanguage = 'zh-cn'
+
+[params]
+  description = "PIEEG提供易于使用和购买的低成本脑机接口设备，让神经科学研究变得触手可及"
+  keywords = "脑机接口,EEG,EMG,ECG,Raspberry Pi,Arduino,Jetson Nano,神经科学"
+  author = "PIEEG Team"
+  
+  # 版权信息配置
+  [params.copyright]
+    company = "PIEEG"
+    year = "2025"
+    owner = "PIEEG Team"
+    
+  # 中国备案信息配置
+  [params.icp]
+    enabled = true
+    number = "京ICP备12345678号-1"  # 请替换为实际的ICP备案号
+    url = "https://beian.miit.gov.cn/"
+    
+  # 公安备案信息配置（可选）
+  [params.gongan]
+    enabled = false
+    number = "京公网安备 11010502012345号"  # 请替换为实际的公安备案号
+    url = "http://www.beian.gov.cn/"
+
+[menu]
+  [[menu.main]]
+    name = "首页"
+    url = "/"
+    weight = 10
+  [[menu.main]]
+  name = "产品"
+  url = "/products/"
+  weight = 20
+  [[menu.main]]
+    name = "数据可视化"
+    url = "/#charts"
+    weight = 30
+  [[menu.main]]
+    name = "关于我们"
+    url = "/#about"
+    weight = 40
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

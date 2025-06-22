@@ -1,0 +1,49 @@
+- name: "PiEEG-8"
+  image: "images/pieeg-8.png"
+  description: "8通道脑机接口设备，兼容Raspberry Pi，用于测量EEG、EMG和ECG生物信号"
+  features:
+    - "兼容Raspberry Pi 3, 4和5"
+    - "8个通道连接湿电极或干电极"
+    - "24位分辨率，250 SPS至16 kSPS采样率"
+    - "可编程信号增益：1, 2, 4, 6, 8, 12, 24"
+  link: "/products/pieeg-8/"
+
+- name: "PiEEG-16"
+  image: "images/pieeg-16.png"
+  description: "16通道脑机接口设备，兼容Raspberry Pi，用于测量EEG、EMG和ECG生物信号"
+  features:
+    - "兼容Raspberry Pi 5"
+    - "16个通道连接湿电极或干电极"
+    - "24位分辨率，250 SPS至16 kSPS采样率"
+    - "可编程信号增益：1, 2, 4, 6, 8, 12, 24"
+  link: "/products/pieeg-16/"
+
+- name: "PIEEG教育套件"
+  image: "images/pieeg-education-kit.png"
+  description: "集成式脑电学习套件，包含完整硬件、软件和神经科学学习课程"
+  features:
+    - "包含PiEEG设备、Raspberry Pi 5和完整配件"
+    - "8个脑电电极、夹式电极和贴片电极"
+    - "预装软件和神经科学学习课程"
+    - "支持EEG、ECG、EMG、EOG多种信号"
+  link: "/products/education-kit/"
+
+- name: "ardEEG"
+  image: "images/ardeeg.png"
+  description: "Arduino扩展板，8通道脑机接口设备，用于测量EEG、EMG和ECG生物信号"
+  features:
+    - "兼容Arduino UNO R4 WiFi"
+    - "8个通道连接湿电极或干电极"
+    - "24位分辨率，250 SPS至16 kSPS采样率"
+    - "低功耗，适合可穿戴设备应用"
+  link: "/products/ardeeg/"
+
+- name: "JNEEG"
+  image: "images/jneeg.png"
+  description: "Jetson Nano扩展板，8通道脑机接口设备，专为深度学习应用设计"
+  features:
+    - "兼容Jetson Nano"
+    - "8个通道连接湿电极或干电极"
+    - "24位分辨率，250 SPS至16 kSPS采样率"
+    - "适合实时机器学习和深度学习应用"
+  link: "/products/jneeg/" 

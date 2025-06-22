@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ if .Title }}{{ .Title }} - {{ end }}{{ .Site.Title }}</title>
+    <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+    <meta name="keywords" content="{{ .Site.Params.keywords }}">
+    <meta name="author" content="{{ .Site.Params.author }}">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="{{ "/" | relURL }}" class="navbar-logo">PI<span>EEG</span></a>
+            <button class="navbar-toggle" id="navbar-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="navbar-menu" id="navbar-menu">
+                {{ range .Site.Menus.main }}
+                <li><a href="{{ .URL | relURL }}"{{ if eq .URL $.RelPermalink }} class="active"{{ end }}>{{ .Name }}</a></li>
+                {{ end }}
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main>
+        {{ block "main" . }}{{ end }}
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>关于PIEEG</h3>
+                    <p>PIEEG提供低成本脑机接口设备，让神经科学研究变得触手可及。我们的使命是让脑机接口技术普及化，为研究者、学生和爱好者提供可靠的工具。</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>产品</h3>
+                    <ul class="footer-links">
+                        <li><a href="{{ "products/pieeg-8/" | relURL }}">PiEEG-8</a></li>
+                        <li><a href="{{ "products/pieeg-16/" | relURL }}">PiEEG-16</a></li>
+                        <li><a href="{{ "products/ardeeg/" | relURL }}">ardEEG</a></li>
+                        <li><a href="{{ "products/jneeg/" | relURL }}">JNEEG</a></li>
+                        <li><a href="{{ "products/accessories/" | relURL }}">配件</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>资源</h3>
+                    <ul class="footer-links">
+                        <li><a href="{{ "docs/technical/" | relURL }}">技术文档</a></li>
+                        <li><a href="https://github.com/pieeg">GitHub代码库</a></li>
+                        <li><a href="{{ "docs/courses/" | relURL }}">信号处理课程</a></li>
+                        <li><a href="{{ "docs/faq/" | relURL }}">常见问题</a></li>
+                        <li><a href="{{ "downloads/" | relURL }}">下载中心</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>联系我们</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@pieeg.cn">info@pieeg.cn</a></li>
+                        <li><i class="fas fa-globe"></i> <a href="https://pieeg.cn">pieeg.cn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>
+                    &copy; {{ .Site.Params.copyright.year | default (now.Year) }} {{ .Site.Params.copyright.company | default "PIEEG" }}. 保留所有权利。
+                    {{ if .Site.Params.icp.enabled }}
+                    | <a href="{{ .Site.Params.icp.url }}" target="_blank" rel="noopener">{{ .Site.Params.icp.number }}</a>
+                    {{ end }}
+                    {{ if .Site.Params.gongan.enabled }}
+                    | <a href="{{ .Site.Params.gongan.url }}" target="_blank" rel="noopener">{{ .Site.Params.gongan.number }}</a>
+                    {{ end }}
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="{{ "js/charts.js" | relURL }}"></script>
+    <script>
+        // 导航栏响应式
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbarToggle = document.getElementById('navbar-toggle');
+            const navbarMenu = document.getElementById('navbar-menu');
+            
+            if (navbarToggle && navbarMenu) {
+                navbarToggle.addEventListener('click', function() {
+                    navbarMenu.classList.toggle('active');
+                });
+            }
+
+        });
+    </script>
+    {{- block "scripts" . }}{{- end }}
+</body>
+</html> 

@@ -1,0 +1,23 @@
+- title: "神经科学研究"
+  icon: "fas fa-brain"
+  description: "低成本设备让更多研究者能够进行脑电波研究，推动神经科学发展"
+
+- title: "脑控游戏"
+  icon: "fas fa-gamepad"
+  description: "使用脑电波控制游戏，创造全新的交互体验"
+
+- title: "脑控机器人"
+  icon: "fas fa-robot"
+  description: "通过脑机接口控制机器人，实现思维控制的未来科技"
+
+- title: "健康监测"
+  icon: "fas fa-heartbeat"
+  description: "监测脑电波和心电图数据，辅助健康管理和压力监控"
+
+- title: "冥想辅助"
+  icon: "fas fa-spa"
+  description: "实时监测冥想状态，提供反馈，帮助改善冥想质量"
+
+- title: "教育与学习"
+  icon: "fas fa-graduation-cap"
+  description: "通过实践项目学习神经科学、信号处理和机器学习" 

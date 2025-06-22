@@ -1,0 +1,229 @@
+{{ define "main" }}
+<div class="container">
+    <article class="product-detail">
+        <div class="product-header">
+            <div class="product-hero">
+                <div class="product-gallery">
+                    {{ $productSlug := .File.BaseFileName }}
+                    {{ $imagePath := printf "images/%s" $productSlug }}
+                    {{ $images := slice }}
+                    
+                    <!-- 根据产品slug生成图片列表 -->
+                    {{ if eq $productSlug "pieeg-8" }}
+                        {{ $images = slice "images/pieeg8/pieeg8-1.png" "images/pieeg8/pieeg8-2.png" "images/pieeg8/pieeg8-3.png" "images/pieeg8/pieeg8-4.png" }}
+                    {{ else if eq $productSlug "pieeg-16" }}
+                        {{ $images = slice "images/pieeg16/pieeg16-1.png" "images/pieeg16/pieeg16-2.png" "images/pieeg16/pieeg16-3.png" "images/pieeg16/pieeg16-4.png" }}
+                    {{ else if eq $productSlug "ardeeg" }}
+                        {{ $images = slice "images/ardeeg/ardeeg-1.png" "images/ardeeg/ardeeg-2.png" "images/ardeeg/ardeeg-3.png" "images/ardeeg/ardeeg-4.png" "images/ardeeg/ardeeg-5.png" }}
+                    {{ else if eq $productSlug "jneeg" }}
+                        {{ $images = slice "images/jneeg/jneeg-1.png" "images/jneeg/jneeg-2.png" "images/jneeg/jneeg-3.png" "images/jneeg/jneeg-4.png" }}
+                    {{ else if eq $productSlug "education-kit" }}
+                        {{ $images = slice "images/pieeg-kit/pieeg-kit-1.png" "images/pieeg-kit/pieeg-kit-2.png" "images/pieeg-kit/pieeg-kit-3.png" "images/pieeg-kit/pieeg-kit-4.png" "images/pieeg-kit/pieeg-kit-5.png" }}
+                    {{ else }}
+                        {{ $images = slice .Params.image }}
+                    {{ end }}
+                    
+                    <!-- 主图显示区域 -->
+                    <div class="gallery-main">
+                        <div class="main-image-container">
+                            {{ range $index, $image := $images }}
+                            <img src="{{ $image | relURL }}" 
+                                 alt="{{ $.Title }} - 图片 {{ add $index 1 }}" 
+                                 class="main-image{{ if eq $index 0 }} active{{ end }}"
+                                 data-index="{{ $index }}"
+                                 loading="{{ if eq $index 0 }}eager{{ else }}lazy{{ end }}">
+                            {{ end }}
+                        </div>
+                        
+                        <!-- 图片导航按钮 -->
+                        {{ if gt (len $images) 1 }}
+                        <button class="gallery-nav gallery-prev" aria-label="上一张图片" style="display: none;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="15,18 9,12 15,6"></polyline>
+                            </svg>
+                        </button>
+                        <button class="gallery-nav gallery-next" aria-label="下一张图片" style="display: none;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9,18 15,12 9,6"></polyline>
+                            </svg>
+                        </button>
+                        
+                        <!-- 图片指示器 -->
+                        <div class="gallery-indicators" style="display: none;">
+                            {{ range $index, $image := $images }}
+                            <button class="indicator{{ if eq $index 0 }} active{{ end }}" 
+                                    data-index="{{ $index }}"
+                                    aria-label="显示第 {{ add $index 1 }} 张图片"></button>
+                            {{ end }}
+                        </div>
+                        {{ end }}
+                    </div>
+                    
+                    <!-- 缩略图导航 -->
+                    {{ if gt (len $images) 1 }}
+                    <div class="gallery-thumbnails">
+                        {{ range $index, $image := $images }}
+                        <button class="thumbnail{{ if eq $index 0 }} active{{ end }}" 
+                                data-index="{{ $index }}"
+                                aria-label="显示第 {{ add $index 1 }} 张图片">
+                            <img src="{{ $image | relURL }}" 
+                                 alt="{{ $.Title }} - 缩略图 {{ add $index 1 }}" 
+                                 loading="lazy">
+                        </button>
+                        {{ end }}
+                    </div>
+                    {{ end }}
+                </div>
+                
+                <div class="product-info">
+                    <h1 class="product-title">{{ .Title }}</h1>
+                    <p class="product-description">{{ .Description }}</p>
+                    <div class="product-actions">
+                        <a href="#specifications" class="btn btn-primary">技术规格</a>
+                        <a href="#applications" class="btn btn-secondary">应用场景</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-content">
+            {{ .Content }}
+        </div>
+
+        <div class="product-navigation">
+            <div class="nav-links">
+                {{ with .PrevInSection }}
+                <a href="{{ .Permalink }}" class="nav-link prev">
+                    <span class="nav-direction">← 上一个产品</span>
+                    <span class="nav-title">{{ .Title }}</span>
+                </a>
+                {{ end }}
+                
+                {{ with .NextInSection }}
+                <a href="{{ .Permalink }}" class="nav-link next">
+                    <span class="nav-direction">下一个产品 →</span>
+                    <span class="nav-title">{{ .Title }}</span>
+                </a>
+                {{ end }}
+            </div>
+        </div>
+    </article>
+</div>
+
+<!-- 图片画廊JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const gallery = document.querySelector('.product-gallery');
+    if (!gallery) return;
+    
+    const mainImages = gallery.querySelectorAll('.main-image');
+    const thumbnails = gallery.querySelectorAll('.thumbnail');
+    const indicators = gallery.querySelectorAll('.indicator');
+    const prevBtn = gallery.querySelector('.gallery-prev');
+    const nextBtn = gallery.querySelector('.gallery-next');
+    const indicatorsContainer = gallery.querySelector('.gallery-indicators');
+    const mainImageContainer = gallery.querySelector('.main-image-container');
+    
+    let currentIndex = 0;
+    
+    // 如果有多张图片，显示导航元素
+    if (mainImages.length > 1) {
+        if (prevBtn) prevBtn.style.display = 'flex';
+        if (nextBtn) nextBtn.style.display = 'flex';
+        if (indicatorsContainer) indicatorsContainer.style.display = 'flex';
+        
+        // 鼠标悬停显示/隐藏导航按钮
+        mainImageContainer.addEventListener('mouseenter', () => {
+            if (prevBtn) prevBtn.style.opacity = '1';
+            if (nextBtn) nextBtn.style.opacity = '1';
+        });
+        
+        mainImageContainer.addEventListener('mouseleave', () => {
+            if (prevBtn) prevBtn.style.opacity = '0.6';
+            if (nextBtn) nextBtn.style.opacity = '0.6';
+        });
+        
+        // 初始设置按钮透明度
+        if (prevBtn) prevBtn.style.opacity = '0.6';
+        if (nextBtn) nextBtn.style.opacity = '0.6';
+    }
+    
+    function showImage(index) {
+        // 隐藏所有主图
+        mainImages.forEach(img => img.classList.remove('active'));
+        thumbnails.forEach(thumb => thumb.classList.remove('active'));
+        indicators.forEach(indicator => indicator.classList.remove('active'));
+        
+        // 显示指定索引的图片
+        if (mainImages[index]) {
+            mainImages[index].classList.add('active');
+        }
+        if (thumbnails[index]) {
+            thumbnails[index].classList.add('active');
+        }
+        if (indicators[index]) {
+            indicators[index].classList.add('active');
+        }
+        
+        currentIndex = index;
+    }
+    
+    function nextImage() {
+        if (mainImages.length <= 1) return;
+        const nextIndex = (currentIndex + 1) % mainImages.length;
+        showImage(nextIndex);
+    }
+    
+    function prevImage() {
+        if (mainImages.length <= 1) return;
+        const prevIndex = (currentIndex - 1 + mainImages.length) % mainImages.length;
+        showImage(prevIndex);
+    }
+    
+    // 缩略图点击事件
+    thumbnails.forEach((thumb, index) => {
+        thumb.addEventListener('click', () => showImage(index));
+    });
+    
+    // 指示器点击事件
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => showImage(index));
+    });
+    
+    // 导航按钮事件
+    if (prevBtn) prevBtn.addEventListener('click', prevImage);
+    if (nextBtn) nextBtn.addEventListener('click', nextImage);
+    
+    // 键盘导航（只在多张图片时生效）
+    if (mainImages.length > 1) {
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') prevImage();
+            if (e.key === 'ArrowRight') nextImage();
+        });
+    }
+    
+    // 触摸滑动支持（只在多张图片时生效）
+    if (mainImages.length > 1) {
+        let startX = 0;
+        let endX = 0;
+        
+        mainImageContainer.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
+        
+        mainImageContainer.addEventListener('touchend', (e) => {
+            endX = e.changedTouches[0].clientX;
+            const diff = startX - endX;
+            
+            if (Math.abs(diff) > 50) { // 最小滑动距离
+                if (diff > 0) {
+                    nextImage(); // 向左滑动，显示下一张
+                } else {
+                    prevImage(); // 向右滑动，显示上一张
+                }
+            }
+        });
+    }
+});
+</script>
+{{ end }} 

@@ -1,0 +1,22 @@
+{{ define "main" }}
+<div class="container page-container">
+    <article class="content-page">
+        <header class="content-header">
+            <h1>{{ .Title }}</h1>
+            {{ if .Description }}
+            <p class="content-description">{{ .Description }}</p>
+            {{ end }}
+        </header>
+        
+        <div class="content-body">
+            {{ .Content }}
+        </div>
+        
+        {{ if .Params.lastmod }}
+        <footer class="content-footer">
+            <p class="last-updated">最后更新：{{ .Params.lastmod | dateFormat "2006年1月2日" }}</p>
+        </footer>
+        {{ end }}
+    </article>
+</div>
+{{ end }} 

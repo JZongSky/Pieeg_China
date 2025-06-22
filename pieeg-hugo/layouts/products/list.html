@@ -1,0 +1,77 @@
+{{ define "main" }}
+<div class="container products-page">
+    <div class="hero-section">
+        <h1 class="hero-title">PIEEG产品系列</h1>
+        <p class="hero-subtitle">探索我们的低成本脑机接口设备，开启神经科学研究之旅</p>
+    </div>
+
+    <div class="products-grid">
+        {{ range .Pages.ByWeight }}
+        <div class="product-card">
+            <div class="product-image">
+                <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}" loading="lazy">
+            </div>
+            <div class="product-content">
+                <h3 class="product-title">{{ .Title }}</h3>
+                <p class="product-description">{{ .Description }}</p>
+                <a href="{{ .Permalink }}" class="btn btn-primary">查看详情</a>
+            </div>
+        </div>
+        {{ end }}
+    </div>
+
+    <div class="products-comparison">
+        <h2>产品对比</h2>
+        <div class="comparison-table-wrapper">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>产品</th>
+                        <th>平台</th>
+                        <th>通道数</th>
+                        <th>特色</th>
+                        <th>适用场景</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>PiEEG-8</strong></td>
+                        <td>树莓派 3/4/5</td>
+                        <td>8通道</td>
+                        <td>入门友好</td>
+                        <td>学习、原型开发</td>
+                    </tr>
+                    <tr>
+                        <td><strong>PiEEG-16</strong></td>
+                        <td>树莓派 5</td>
+                        <td>16通道</td>
+                        <td>高通道密度</td>
+                        <td>复杂研究项目</td>
+                    </tr>
+                    <tr>
+                        <td><strong>PIEEG教育套件</strong></td>
+                        <td>树莓派 5</td>
+                        <td>8通道</td>
+                        <td>完整套件+课程</td>
+                        <td>教育学习</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ardEEG</strong></td>
+                        <td>Arduino UNO R4</td>
+                        <td>8通道</td>
+                        <td>超低功耗</td>
+                        <td>可穿戴设备</td>
+                    </tr>
+                    <tr>
+                        <td><strong>JNEEG</strong></td>
+                        <td>Jetson Nano</td>
+                        <td>8通道</td>
+                        <td>AI加速</td>
+                        <td>机器学习应用</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{{ end }} 
