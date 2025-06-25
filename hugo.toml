@@ -124,6 +124,9 @@ defaultContentLanguage = 'zh-cn'
     url = "/about/"
     weight = 40
 
+# 禁用默认分类系统（如categories和tags）
+disableKinds = ["taxonomy", "term"]
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]

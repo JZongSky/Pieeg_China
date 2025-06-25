@@ -1,0 +1,32 @@
+{{ define "main" }}
+<div class="container">
+    <div class="taxonomy-page">
+        <header class="page-header">
+            <h1 class="page-title">{{ .Title }}</h1>
+            {{ if .Params.description }}
+            <p class="page-description">{{ .Params.description }}</p>
+            {{ end }}
+        </header>
+
+        {{ if .Data.Terms }}
+        <div class="taxonomy-terms">
+            {{ range .Data.Terms.ByCount }}
+            <div class="taxonomy-term">
+                <h2><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a></h2>
+                <p class="term-count">{{ .Count }} {{ if eq .Count 1 }}item{{ else }}items{{ end }}</p>
+                {{ if .Page.Content }}
+                <div class="term-content">
+                    {{ .Page.Content }}
+                </div>
+                {{ end }}
+            </div>
+            {{ end }}
+        </div>
+        {{ else }}
+        <div class="no-content">
+            <p>No items found in this taxonomy.</p>
+        </div>
+        {{ end }}
+    </div>
+</div>
+{{ end }} 

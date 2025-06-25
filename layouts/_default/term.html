@@ -1,0 +1,40 @@
+{{ define "main" }}
+<div class="container">
+    <div class="term-page">
+        <header class="page-header">
+            <h1 class="page-title">{{ .Title }}</h1>
+            {{ if .Params.description }}
+            <p class="page-description">{{ .Params.description }}</p>
+            {{ end }}
+            <p class="term-info">{{ len .Pages }} {{ if eq (len .Pages) 1 }}item{{ else }}items{{ end }} in this {{ .Data.Singular }}</p>
+        </header>
+
+        {{ if .Pages }}
+        <div class="term-content">
+            {{ range .Pages }}
+            <article class="term-item">
+                <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+                {{ if .Params.description }}
+                <p class="item-description">{{ .Params.description }}</p>
+                {{ else if .Summary }}
+                <p class="item-summary">{{ .Summary }}</p>
+                {{ end }}
+                <div class="item-meta">
+                    {{ if .Date }}
+                    <span class="item-date">{{ .Date.Format "2006-01-02" }}</span>
+                    {{ end }}
+                    {{ if .Section }}
+                    <span class="item-section">{{ .Section }}</span>
+                    {{ end }}
+                </div>
+            </article>
+            {{ end }}
+        </div>
+        {{ else }}
+        <div class="no-content">
+            <p>No items found in this {{ .Data.Singular }}.</p>
+        </div>
+        {{ end }}
+    </div>
+</div>
+{{ end }} 
