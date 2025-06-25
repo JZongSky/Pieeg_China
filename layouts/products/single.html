@@ -79,8 +79,11 @@
                     <h1 class="product-title">{{ .Title }}</h1>
                     <p class="product-description">{{ .Description }}</p>
                     <div class="product-actions">
-                        <a href="#specifications" class="btn btn-primary">技术规格</a>
-                        <a href="#applications" class="btn btn-secondary">应用场景</a>
+                        {{ $productSlug := .File.BaseFileName }}
+                        {{ $shopUrl := index .Site.Params.shop_links $productSlug }}
+                        {{ if $shopUrl }}
+                        <a href="{{ $shopUrl }}" class="btn btn-primary" target="_blank" rel="noopener">点击购买</a>
+                        {{ end }}
                     </div>
                 </div>
             </div>

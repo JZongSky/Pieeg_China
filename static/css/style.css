@@ -167,17 +167,18 @@ a:hover {
 
 /* 英雄区 */
 .hero {
-  padding: calc(70px + var(--spacing-xl)) 0 var(--spacing-xl);
+  padding: 70px 0 0 0;
   background-image: url('/images/hero-background.png');
   background-size: cover;
-  background-position: center bottom;
+  background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-color: var(--color-primary);
   color: var(--color-white);
   position: relative;
   overflow: hidden;
-  height: 480px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
 .hero::before {
@@ -196,12 +197,19 @@ a:hover {
   z-index: 2;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
 }
 
 .hero-text {
-  flex: 1;
-  max-width: 600px;
+  max-width: 800px;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero h1 {
@@ -216,15 +224,7 @@ a:hover {
   opacity: 0.9;
 }
 
-.hero-image {
-  flex: 1;
-  text-align: center;
-}
 
-.hero-image img {
-  max-width: 100%;
-  height: auto;
-}
 
 .btn {
   display: inline-block;
@@ -252,7 +252,6 @@ a:hover {
   background-color: transparent;
   color: var(--color-white);
   border: 2px solid var(--color-white);
-  margin-left: var(--spacing-md);
 }
 
 .btn-outline:hover {
@@ -701,6 +700,38 @@ section[id]::before {
   color: var(--color-secondary);
 }
 
+/* 微信二维码样式 */
+.wechat-qr {
+  text-align: center;
+  margin-top: var(--spacing-md);
+}
+
+.qr-code {
+  width: 120px;
+  height: 120px;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease;
+}
+
+.qr-code:hover {
+  transform: scale(1.05);
+}
+
+/* 联系项目样式 */
+.contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.contact-item i {
+  margin-right: var(--spacing-sm);
+  color: var(--color-secondary);
+  min-width: 20px;
+}
+
 /* 活动导航链接 */
 .navbar-menu a.active {
   color: var(--color-secondary);
@@ -756,8 +787,9 @@ section[id]::before {
   
   .hero {
     background-attachment: scroll;
-    background-position: center bottom;
-    height: 480px;
+    background-position: center center;
+    background-size: cover;
+    height: 100vh;
   }
   
   .hero h1 {
@@ -768,14 +800,10 @@ section[id]::before {
     font-size: 1rem;
   }
   
-  .btn {
-    display: block;
-    width: 100%;
-    margin-bottom: var(--spacing-sm);
-  }
-  
-  .btn-outline {
-    margin-left: 0;
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
   }
   
   .chart-row {
@@ -1204,7 +1232,6 @@ section[id]::before {
     margin-top: 2rem;
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--color-secondary);
 }
 
 .product-detail .product-content h3 {
@@ -1317,7 +1344,6 @@ section[id]::before {
 .product-navigation {
     margin-top: 3rem;
     padding: 2rem 0;
-    border-top: 1px solid #eee;
 }
 
 .nav-links {
@@ -1421,4 +1447,25 @@ section[id]::before {
     .product-content ol {
         padding-left: 1rem;
   }
+}
+
+/* 确保主内容区域与footer之间有适当间距 */
+main {
+    margin-bottom: var(--spacing-xl);
+}
+
+/* 针对单页面内容（如关于我们、免责声明等）添加额外底部间距 */
+.content-page {
+    margin-bottom: var(--spacing-xl);
+}
+
+/* 移动端调整 */
+@media (max-width: 768px) {
+    main {
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .content-page {
+        margin-bottom: var(--spacing-lg);
+    }
 }

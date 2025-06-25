@@ -47,15 +47,4 @@ PiEEG 不仅是学习生物科学的绝佳工具，也具备多种实际应用�
 - **GitHub仓库**: [https://github.com/pieeg-club/PiEEG](https://github.com/pieeg-club/PiEEG)
 - **技术文档**: [https://pieeg.cn/docs/docs/pieeg/](https://pieeg.cn/docs/docs/pieeg/)
 
-## 技术规格
-
-| 规格项 | 参数 |
-|--------|------|
-| 兼容平台 | 树莓派 3, 4, 5 |
-| 通道数 | 8通道 |
-| 电极类型 | 湿电极/干电极 |
-| 分辨率 | 24位 |
-| 采样频率 | 250 SPS - 16 kSPS |
-| 信号增益 | 1, 2, 4, 6, 8, 12, 24 |
-| 通信协议 | SPI |
-| 扩展引脚 | 3个空闲引脚 | 
+ 

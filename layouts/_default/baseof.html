@@ -8,6 +8,11 @@
     <meta name="keywords" content="{{ .Site.Params.keywords }}">
     <meta name="author" content="{{ .Site.Params.author }}">
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ "favicon.png" | relURL }}">
+    <link rel="shortcut icon" type="image/png" href="{{ "favicon.png" | relURL }}">
+    <link rel="apple-touch-icon" href="{{ "favicon.png" | relURL }}">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
@@ -55,9 +60,11 @@
                     <h3>关于PIEEG</h3>
                     <p>PIEEG提供低成本脑机接口设备，让神经科学研究变得触手可及。我们的使命是让脑机接口技术普及化，为研究者、学生和爱好者提供可靠的工具。</p>
                     <div class="footer-social">
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        {{ range .Site.Params.footer_social.links }}
+                        <a href="{{ .url }}"{{ if ne .url "#" }} target="_blank"{{ end }} title="{{ .name }}">
+                            <i class="{{ .icon }}"></i>
+                        </a>
+                        {{ end }}
                     </div>
                 </div>
                 <div class="footer-column">
@@ -73,24 +80,26 @@
                 <div class="footer-column">
                     <h3>资源</h3>
                     <ul class="footer-links">
-                        <li><a href="https://github.com/pieeg/docs" target="_blank">技术文档</a></li>
-                        <li><a href="https://github.com/pieeg" target="_blank">GitHub代码库</a></li>
-                        <li><a href="https://github.com/pieeg/tutorials" target="_blank">教程资源</a></li>
-                        <li><a href="{{ "disclaimer/" | relURL }}">免责声明</a></li>
-                        <li><a href="{{ "products/" | relURL }}">产品中心</a></li>
+                        {{ range .Site.Params.footer_resources.links }}
+                        <li>
+                            <a href="{{ if .external }}{{ .url }}{{ else }}{{ .url | relURL }}{{ end }}"{{ if .external }} target="_blank"{{ end }}>{{ .name }}</a>
+                        </li>
+                        {{ end }}
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>联系我们</h3>
                     <ul class="footer-links">
-                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@pieeg.cn">info@pieeg.cn</a></li>
-                        <li><i class="fas fa-globe"></i> <a href="https://pieeg.cn">pieeg.cn</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:{{ .Site.Params.contact.email.sales_email }}">{{ .Site.Params.contact.email.sales_email }}</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:{{ .Site.Params.contact.email.support_email }}">{{ .Site.Params.contact.email.support_email }}</a></li>
+                        <li><i class="fas fa-phone"></i> {{ .Site.Params.contact.phone.phone1 }}</li>
+                        <li><i class="fas fa-phone"></i> {{ .Site.Params.contact.phone.phone2 }}</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>
-                    &copy; {{ .Site.Params.copyright.year | default (now.Year) }} {{ .Site.Params.copyright.company | default "PIEEG" }}. 保留所有权利。
+                    &copy; {{ .Site.Params.copyright.year | default (now.Year) }} {{ .Site.Params.copyright.company | default "PIEEG" }}. 保留所有权利
                     {{ if .Site.Params.icp.enabled }}
                     | <a href="{{ .Site.Params.icp.url }}" target="_blank" rel="noopener">{{ .Site.Params.icp.number }}</a>
                     {{ end }}

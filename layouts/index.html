@@ -8,11 +8,7 @@
         <p>PIEEG提供易于使用和购买的低成本脑机接口设备，让神经科学研究变得触手可及。我们的设备可测量EEG、EMG和ECG生物信号，适用于Raspberry Pi、Arduino和Jetson Nano平台。</p>
         <div class="hero-buttons">
           <a href="/products/" class="btn btn-primary">探索产品</a>
-          <a href="#charts" class="btn btn-outline">查看演示</a>
         </div>
-      </div>
-      <div class="hero-image">
-        <img src="{{ "images/pieeg-hero.png" | relURL }}" alt="PIEEG设备">
       </div>
     </div>
   </div>
@@ -118,36 +114,55 @@
     </div>
 
     <div class="contact-grid">
+      <!-- 邮件联系 -->
       <div class="contact-card">
         <div class="contact-icon">
-          <i class="fas fa-envelope"></i>
+          <i class="{{ .Site.Params.contact.email.icon }}"></i>
         </div>
         <div class="contact-content">
-          <h3>邮件联系</h3>
-          <p>技术支持和产品咨询</p>
-                              <a href="mailto:info@pieeg.cn" class="contact-link">info@pieeg.cn</a>
+          <h3>{{ .Site.Params.contact.email.title }}</h3>
+          <p>{{ .Site.Params.contact.email.description }}</p>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:{{ .Site.Params.contact.email.sales_email }}" class="contact-link">{{ .Site.Params.contact.email.sales_email }}</a>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:{{ .Site.Params.contact.email.support_email }}" class="contact-link">{{ .Site.Params.contact.email.support_email }}</a>
+          </div>
         </div>
       </div>
       
+      <!-- 联系电话 -->
       <div class="contact-card">
         <div class="contact-icon">
-          <i class="fab fa-github"></i>
+          <i class="{{ .Site.Params.contact.phone.icon }}"></i>
         </div>
         <div class="contact-content">
-          <h3>开源代码</h3>
-          <p>查看源代码和文档</p>
-          <a href="https://github.com/pieeg" class="contact-link">GitHub</a>
+          <h3>{{ .Site.Params.contact.phone.title }}</h3>
+          <p>{{ .Site.Params.contact.phone.description }}</p>
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <span class="contact-link">{{ .Site.Params.contact.phone.phone1 }}</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <span class="contact-link">{{ .Site.Params.contact.phone.phone2 }}</span>
+          </div>
         </div>
       </div>
       
+      <!-- 微信联系 -->
       <div class="contact-card">
         <div class="contact-icon">
-          <i class="fas fa-download"></i>
+          <i class="{{ .Site.Params.contact.wechat.icon }}"></i>
         </div>
         <div class="contact-content">
-          <h3>资源下载</h3>
-          <p>软件包和技术文档</p>
-          <a href="#downloads" class="contact-link">下载中心</a>
+          <h3>{{ .Site.Params.contact.wechat.title }}</h3>
+          <p>{{ .Site.Params.contact.wechat.description }}</p>
+          <div class="wechat-qr">
+            <img src="{{ .Site.Params.contact.wechat.qr_image | relURL }}" alt="{{ .Site.Params.contact.wechat.text }}" class="qr-code">
+          </div>
         </div>
       </div>
     </div>
