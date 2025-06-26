@@ -838,7 +838,7 @@ section[id]::before {
 
 /* Content Page Styles */
 .content-page {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
     background: white;
     padding: 3rem;
@@ -942,7 +942,7 @@ section[id]::before {
 
 /* Product Detail Page */
 .product-detail {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
     padding-top: calc(70px + 2rem);
 }
